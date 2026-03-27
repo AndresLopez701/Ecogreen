@@ -1,31 +1,40 @@
 /* ========== MENU DATA ========== */
 const menuData = {
   antipasti: [
-    { name: 'Bruschetta al Pomodoro', desc: 'Toasted bread with fresh tomato, basil, garlic, and extra virgin olive oil', price: '€8.50', img: 'https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?w=400&q=80' },
-    { name: 'Carpaccio di Manzo', desc: 'Thinly sliced beef with arugula, parmesan, and lemon vinaigrette', price: '€14.90', img: 'https://images.unsplash.com/photo-1608897013039-887f21d8c804?w=400&q=80' },
-    { name: 'Caprese di Bufala', desc: 'Buffalo mozzarella DOP, beefsteak tomato, fresh basil, and balsamic reduction', price: '€12.50', img: 'https://images.unsplash.com/photo-1608032077018-c9aad9565d29?w=400&q=80' },
-    { name: 'Arancini Siciliani', desc: 'Rice croquettes stuffed with ragù, mozzarella, and peas with marinara sauce', price: '€10.90', img: 'https://images.unsplash.com/photo-1595295333158-4742f28fbd85?w=400&q=80' },
-    { name: 'Vitello Tonnato', desc: 'Thinly sliced roasted veal with creamy tuna sauce and capers', price: '€13.50', img: 'https://images.unsplash.com/photo-1541014741259-de529411b96a?w=400&q=80' }
+    { name: 'Bruschetta al Pomodoro', desc: 'Toasted ciabatta with vine-ripened tomato, fresh basil, garlic, and extra virgin olive oil', price: '€8.50', img: 'https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?w=400&q=80' },
+    { name: 'Carpaccio di Manzo', desc: 'Thinly sliced raw beef tenderloin with wild arugula, shaved parmesan, and lemon vinaigrette', price: '€14.90', img: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=400&q=80' },
+    { name: 'Caprese di Bufala', desc: 'Buffalo mozzarella DOP, beefsteak tomato, fresh basil, and aged balsamic reduction', price: '€12.50', img: 'https://images.unsplash.com/photo-1608032077018-c9aad9565d29?w=400&q=80' },
+    { name: 'Arancini Siciliani', desc: 'Golden rice croquettes stuffed with ragù, mozzarella, and peas with marinara sauce', price: '€10.90', img: 'https://images.unsplash.com/photo-1595295333158-4742f28fbd85?w=400&q=80' },
+    { name: 'Vitello Tonnato', desc: 'Thinly sliced roasted veal with creamy tuna sauce, capers, and lemon zest', price: '€13.50', img: 'https://images.unsplash.com/photo-1541014741259-de529411b96a?w=400&q=80' },
+    { name: 'Burrata e Prosciutto', desc: 'Creamy burrata cheese with prosciutto di Parma, grilled peaches, and honey drizzle', price: '€15.90', img: 'https://images.unsplash.com/photo-1626200419199-391ae4be7a41?w=400&q=80' },
+    { name: 'Zuppa di Pomodoro', desc: 'Velvety roasted tomato soup with basil oil, croutons, and a touch of cream', price: '€9.50', img: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&q=80' }
   ],
   pasta: [
-    { name: 'Spaghetti Carbonara', desc: 'Classic Roman recipe with guanciale, pecorino romano, egg yolk, and black pepper', price: '€16.50', img: 'https://images.unsplash.com/photo-1612874742237-6526221588e3?w=400&q=80' },
-    { name: 'Penne all\'Arrabbiata', desc: 'Penne rigate with spicy tomato sauce, garlic, chili, and fresh parsley', price: '€13.90', img: 'https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=400&q=80' },
-    { name: 'Risotto ai Funghi', desc: 'Creamy carnaroli rice with fresh porcini mushrooms, butter, and parmigiano reggiano', price: '€18.50', img: 'https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=400&q=80' },
-    { name: 'Tagliatelle al Ragù', desc: 'Fresh egg pasta with authentic Bolognese ragù, slow-cooked for 6 hours', price: '€17.90', img: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&q=80' },
-    { name: 'Gnocchi al Pesto', desc: 'Handmade potato gnocchi with Genovese pesto, toasted pine nuts, and pecorino', price: '€15.50', img: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&q=80' }
+    { name: 'Spaghetti Carbonara', desc: 'Classic Roman recipe with guanciale, pecorino romano, egg yolk, and cracked black pepper', price: '€16.50', img: 'https://images.unsplash.com/photo-1612874742237-6526221588e3?w=400&q=80' },
+    { name: 'Penne all\'Arrabbiata', desc: 'Penne rigate tossed in fiery tomato sauce with garlic, chili flakes, and fresh parsley', price: '€13.90', img: 'https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=400&q=80' },
+    { name: 'Risotto ai Funghi Porcini', desc: 'Creamy carnaroli rice with wild porcini mushrooms, butter, and aged parmigiano reggiano', price: '€18.50', img: 'https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=400&q=80' },
+    { name: 'Tagliatelle al Ragù', desc: 'Hand-cut egg pasta with authentic Bolognese ragù, slow-simmered for 6 hours', price: '€17.90', img: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&q=80' },
+    { name: 'Gnocchi al Pesto', desc: 'Pillowy handmade potato gnocchi with Genovese pesto, toasted pine nuts, and pecorino', price: '€15.50', img: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&q=80' },
+    { name: 'Linguine alle Vongole', desc: 'Linguine with fresh clams, white wine, garlic, chili, and flat-leaf parsley', price: '€19.90', img: 'https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=400&q=80' },
+    { name: 'Ravioli di Ricotta e Spinaci', desc: 'Homemade ravioli filled with ricotta and spinach in sage brown butter sauce', price: '€16.90', img: 'https://images.unsplash.com/photo-1587740908075-9e245070dfaa?w=400&q=80' },
+    { name: 'Cacio e Pepe', desc: 'Rome\'s iconic pasta with pecorino romano, toasted black pepper, and pasta water emulsion', price: '€14.50', img: 'https://images.unsplash.com/photo-1673442632736-7e30eab23791?w=400&q=80' }
   ],
   pizzas: [
-    { name: 'Margherita DOP', desc: 'The classic Neapolitan with san marzano DOP, fior di latte, basil, and olive oil', price: '€12.90', img: 'https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=400&q=80' },
-    { name: 'Quattro Formaggi', desc: 'Mozzarella, gorgonzola, fontina, and parmigiano reggiano with truffle honey', price: '€16.50', img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&q=80' },
-    { name: 'Diavola', desc: 'Tomato sauce, mozzarella, spicy Calabrian salami, and chili oil', price: '€14.90', img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=80' },
-    { name: 'Prosciutto e Rucola', desc: 'Mozzarella base, prosciutto di Parma, fresh arugula, and shaved grana padano', price: '€17.50', img: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&q=80' },
-    { name: 'Truffle Bianca', desc: 'Truffle cream base, mozzarella, mushrooms, potato, and fresh rosemary', price: '€19.90', img: 'https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?w=400&q=80' }
+    { name: 'Margherita DOP', desc: 'The classic Neapolitan with san marzano DOP, fior di latte, fresh basil, and olive oil', price: '€12.90', img: 'https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=400&q=80' },
+    { name: 'Quattro Formaggi', desc: 'Mozzarella, gorgonzola, fontina, and parmigiano reggiano finished with truffle honey', price: '€16.50', img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&q=80' },
+    { name: 'Diavola', desc: 'San marzano tomato, mozzarella, spicy Calabrian nduja salami, and chili oil', price: '€14.90', img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=80' },
+    { name: 'Prosciutto e Rucola', desc: 'Mozzarella base topped with prosciutto di Parma, wild arugula, and shaved grana padano', price: '€17.50', img: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&q=80' },
+    { name: 'Truffle Bianca', desc: 'Black truffle cream, mozzarella di bufala, wild mushrooms, potato, and fresh rosemary', price: '€19.90', img: 'https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?w=400&q=80' },
+    { name: 'Capricciosa', desc: 'Tomato, mozzarella, artichoke hearts, black olives, ham, and mushrooms', price: '€15.90', img: 'https://images.unsplash.com/photo-1600028068383-ea11a7a101f3?w=400&q=80' },
+    { name: 'Napoletana', desc: 'San marzano tomato, anchovies, capers, Gaeta olives, and oregano on a crispy base', price: '€14.50', img: 'https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=400&q=80' }
   ],
   postres: [
-    { name: 'Tiramisú Classico', desc: 'Layers of savoiardi, espresso, mascarpone, and bitter cocoa. Nonna\'s recipe', price: '€9.50', img: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400&q=80' },
-    { name: 'Panna Cotta', desc: 'Silky vanilla cream with seasonal berry coulis', price: '€8.50', img: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&q=80' },
-    { name: 'Cannoli Siciliani', desc: 'Crispy shells filled with sweet ricotta, pistachios, and candied orange', price: '€7.90', img: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&q=80' },
-    { name: 'Affogato al Caffè', desc: 'Artisan vanilla gelato drowned in hot espresso with amaretti biscuits', price: '€7.50', img: 'https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=400&q=80' }
+    { name: 'Tiramisú Classico', desc: 'Layers of espresso-soaked savoiardi, mascarpone cream, and bitter cocoa. Nonna\'s recipe', price: '€9.50', img: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400&q=80' },
+    { name: 'Panna Cotta', desc: 'Silky Piedmontese vanilla cream with seasonal mixed berry coulis', price: '€8.50', img: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&q=80' },
+    { name: 'Cannoli Siciliani', desc: 'Crispy fried pastry shells filled with sweet ricotta, pistachios, and candied orange peel', price: '€7.90', img: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&q=80' },
+    { name: 'Affogato al Caffè', desc: 'Artisan vanilla gelato drowned in freshly pulled espresso with amaretti biscuits', price: '€7.50', img: 'https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=400&q=80' },
+    { name: 'Torta Caprese', desc: 'Flourless chocolate and almond cake from Capri with a dusting of powdered sugar', price: '€9.90', img: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&q=80' },
+    { name: 'Gelato Artigianale', desc: 'Three scoops of house-churned gelato — ask your server for today\'s seasonal flavors', price: '€8.00', img: 'https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?w=400&q=80' }
   ]
 };
 
@@ -77,7 +86,7 @@ function renderMenu(category) {
           <p>${item.desc}</p>
           <div class="menu__card-footer">
             <span class="price">${item.price}</span>
-            <span class="price-badge">Nuevo</span>
+            <span class="price-badge">New</span>
           </div>
         </div>
       </article>
