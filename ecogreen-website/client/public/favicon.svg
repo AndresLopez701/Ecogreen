@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="50" fill="#00A651"/>
+  <!-- Water drop with concentric lines - white on green -->
+  <!-- Outer drop shape -->
+  <path d="M50 15 C50 15 22 45 22 62 C22 77 34.5 88 50 88 C65.5 88 78 77 78 62 C78 45 50 15 50 15Z" fill="white" opacity="0.15"/>
+  <!-- Line 1 - outermost -->
+  <path d="M50 18 C50 18 25 47 25 63 C25 77 36 86 50 86 C64 86 75 77 75 63 C75 47 50 18 50 18Z" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Line 2 -->
+  <path d="M50 26 C50 26 31 51 31 63 C31 74 39.5 82 50 82 C60.5 82 69 74 69 63 C69 51 50 26 50 26Z" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <!-- Line 3 -->
+  <path d="M50 34 C50 34 37 55 37 63 C37 71 43 77 50 77 C57 77 63 71 63 63 C63 55 50 34 50 34Z" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Inner drop -->
+  <path d="M50 44 C50 44 43 57 43 63 C43 67.5 46 71 50 71 C54 71 57 67.5 57 63 C57 57 50 44 50 44Z" fill="white" opacity="0.9"/>
+</svg>
