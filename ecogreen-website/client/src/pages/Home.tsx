@@ -36,9 +36,6 @@ export default function Home() {
         </SectionReveal>
         <SectionDivider variant="dark-to-cream" flip />
         <SectionReveal>
-          <PackagesSection />
-        </SectionReveal>
-        <SectionReveal>
           <GallerySection />
         </SectionReveal>
         <SectionReveal>

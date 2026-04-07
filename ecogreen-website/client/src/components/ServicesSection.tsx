@@ -11,7 +11,7 @@ import GlassmorphismCard from "@/components/animations/GlassmorphismCard";
 import AnimatedGradientBg from "@/components/animations/AnimatedGradientBg";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Crown, Users, Building2, PartyPopper, Sparkles, Truck } from "lucide-react";
+import { Crown, Users, Building2, PartyPopper, Sparkles, Truck, Trophy } from "lucide-react";
 
 const LUXURY_TRAILER = "/imgs/boda-elegante.jpg";
 
@@ -35,6 +35,11 @@ const services = [
     icon: PartyPopper,
     title: "Fiestas Privadas",
     desc: "Desde reuniones íntimas hasta grandes fiestas, ofrecemos la capacidad y el estilo que su evento necesita.",
+  },
+  {
+    icon: Trophy,
+    title: "Eventos Deportivos",
+    desc: "Torneos, maratones y competencias con soluciones sanitarias de alto flujo, rápidas de instalar y fáciles de mantener.",
   },
   {
     icon: Sparkles,

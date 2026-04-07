@@ -16,7 +16,7 @@ const WEDDING_IMG = "/imgs/boda1.jpg";
 const stats = [
   { value: 500, suffix: "+", label: "Eventos Realizados" },
   { value: 100, suffix: "%", label: "Satisfacción" },
-  { value: 706, suffix: "+", label: "Seguidores" },
+  { value: 5, suffix: "+", label: "Años de Experiencia" },
   { value: 24, suffix: "/7", label: "Disponibilidad" },
 ];
 
@@ -34,12 +34,12 @@ const reasons = [
   {
     icon: ThumbsUp,
     title: "Experiencia Comprobada",
-    desc: "Años de experiencia en los eventos más importantes de Cali y el Valle del Cauca.",
+    desc: "Años de experiencia en los eventos más importantes de Colombia.",
   },
   {
     icon: MapPin,
-    title: "Cobertura Regional",
-    desc: "Servicio en Cali y todo el Valle del Cauca, con logística propia para llegar a cualquier lugar.",
+    title: "Cobertura Nacional",
+    desc: "Llegamos a casi cualquier ciudad del país. Si su evento es fuera de Cali, contáctenos y lo planeamos juntos.",
   },
 ];
 
@@ -181,23 +181,6 @@ export default function WhyChooseUsSection() {
             ))}
           </div>
 
-          {/* Testimonial */}
-          <BlurFade delay={0.6} className="mt-24 text-center max-w-3xl mx-auto">
-            <div className="relative">
-              {/* Large decorative quote */}
-              <span className="absolute -top-8 left-1/2 -translate-x-1/2 font-display text-[120px] leading-none text-[#D4A843]/8 select-none">
-                &ldquo;
-              </span>
-              <blockquote className="font-display text-2xl md:text-3xl italic text-[#2C2C2C]/80 leading-relaxed relative z-10 pt-8">
-                La emoción se respiraba en el aire. Cada detalle había sido cuidadosamente elegido,
-                creando un ambiente mágico.
-              </blockquote>
-              <div className="w-12 h-px bg-gradient-to-r from-transparent via-[#D4A843] to-transparent mx-auto mt-8 mb-6" />
-              <p className="font-body text-xs uppercase tracking-[0.25em] text-[#2C2C2C]/40">
-                Club Campestre de Cali — Boda 2025
-              </p>
-            </div>
-          </BlurFade>
         </div>
       </div>
     </section>

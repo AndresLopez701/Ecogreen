@@ -27,7 +27,7 @@ const steps = [
     icon: Truck,
     number: 3,
     title: "Instalación",
-    desc: "Entregamos e instalamos todo antes de su evento con puntualidad garantizada.",
+    desc: "Instalamos todo antes de su evento con puntualidad garantizada.",
   },
   {
     icon: PartyPopper,

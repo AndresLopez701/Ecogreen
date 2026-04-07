@@ -10,7 +10,7 @@ import MagneticButton from "@/components/animations/MagneticButton";
 import AnimatedGradientBg from "@/components/animations/AnimatedGradientBg";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { MapPin, Phone, MessageCircle, Instagram } from "lucide-react";
+import { MapPin, Phone, MessageCircle, Instagram, Mail, Music2 } from "lucide-react";
 import { toast } from "sonner";
 import { WHATSAPP_URL, WHATSAPP_NUMBER, PHONE_DISPLAY, INSTAGRAM_URL } from "@shared/const";
 
@@ -30,14 +30,26 @@ const contactInfo = [
   {
     icon: MessageCircle,
     title: "WhatsApp",
-    lines: ["Escríbenos directamente"],
+    lines: [PHONE_DISPLAY],
     href: WHATSAPP_URL,
+  },
+  {
+    icon: Mail,
+    title: "Correo",
+    lines: ["ecogreen.soluciones.col@gmail.com"],
+    href: "mailto:ecogreen.soluciones.col@gmail.com",
   },
   {
     icon: Instagram,
     title: "Instagram",
     lines: ["@ecogreen_soluciones"],
     href: INSTAGRAM_URL,
+  },
+  {
+    icon: Music2,
+    title: "TikTok",
+    lines: ["@ecogreen_soluciones"],
+    href: "https://www.tiktok.com/@ecogreen_soluciones",
   },
 ];
 
@@ -218,24 +230,6 @@ export default function ContactSection() {
               </MagneticButton>
             </motion.div>
 
-            {/* Embedded map — Cali, Colombia */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.75 }}
-              className="pt-2 rounded-2xl overflow-hidden border border-white/[0.07] shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
-            >
-              <iframe
-                title="EcoGreen — Cali, Colombia"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127495.55865752693!2d-76.6294!3d3.4516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a6f0a3d3b81b%3A0xe4a5b9d3dc8e55f7!2sCali%2C%20Valle%20del%20Cauca%2C%20Colombia!5e0!3m2!1ses!2sco!4v1699000000000!5m2!1ses!2sco"
-                width="100%"
-                height="200"
-                style={{ border: 0, display: "block", filter: "invert(0.9) hue-rotate(180deg) saturate(0.4) brightness(0.75)" }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </motion.div>
           </div>
 
           {/* Contact form with glassmorphism */}

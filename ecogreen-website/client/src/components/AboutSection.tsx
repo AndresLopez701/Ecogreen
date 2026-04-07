@@ -170,7 +170,7 @@ export default function AboutSection() {
               <p className="font-body text-lg text-[#2C2C2C]/70 leading-[1.8] mb-12">
                 Con sede en <strong className="text-[#00A651] font-semibold">Cali, Colombia</strong>,
                 llevamos años brindando un servicio excepcional en los eventos más exclusivos
-                del Valle del Cauca. Cada unidad cuenta con acabados premium, aire acondicionado,
+                de Colombia. Cada unidad cuenta con acabados premium, aire acondicionado,
                 iluminación ambiental y productos de higiene de primera calidad.
               </p>
             </BlurFade>
