@@ -14,9 +14,9 @@ import { Shield, Clock, ThumbsUp, MapPin } from "lucide-react";
 const WEDDING_IMG = "/imgs/boda1.jpg";
 
 const stats = [
-  { value: 500, suffix: "+", label: "Eventos Realizados" },
+  { value: 400, suffix: "+", label: "Eventos Realizados" },
   { value: 100, suffix: "%", label: "Satisfacción" },
-  { value: 5, suffix: "+", label: "Años de Experiencia" },
+  { value: 7, suffix: "+", label: "Años de Experiencia" },
   { value: 24, suffix: "/7", label: "Disponibilidad" },
 ];
 
@@ -39,7 +39,7 @@ const reasons = [
   {
     icon: MapPin,
     title: "Cobertura Nacional",
-    desc: "Llegamos a casi cualquier ciudad del país. Si su evento es fuera de Cali, contáctenos y lo planeamos juntos.",
+    desc: "Llegamos a casi cualquier ciudad del país, contáctenos y lo planeamos juntos.",
   },
 ];
 

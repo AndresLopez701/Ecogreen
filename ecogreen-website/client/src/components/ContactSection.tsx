@@ -10,7 +10,7 @@ import MagneticButton from "@/components/animations/MagneticButton";
 import AnimatedGradientBg from "@/components/animations/AnimatedGradientBg";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { MapPin, Phone, MessageCircle, Instagram, Mail, Music2 } from "lucide-react";
+import { MapPin, Phone, MessageCircle, Instagram, Mail, Music2, Facebook } from "lucide-react";
 import { toast } from "sonner";
 import { WHATSAPP_URL, WHATSAPP_NUMBER, PHONE_DISPLAY, INSTAGRAM_URL } from "@shared/const";
 
@@ -24,7 +24,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Teléfono",
-    lines: [PHONE_DISPLAY],
+    lines: [PHONE_DISPLAY, "302 374 8570"],
     href: `tel:+${WHATSAPP_NUMBER}`,
   },
   {
@@ -50,6 +50,12 @@ const contactInfo = [
     title: "TikTok",
     lines: ["@ecogreen_soluciones"],
     href: "https://www.tiktok.com/@ecogreen_soluciones",
+  },
+  {
+    icon: Facebook,
+    title: "Facebook",
+    lines: ["Ecogreen soluciones"],
+    href: "https://www.facebook.com/p/Ecogreen-soluciones-100068049703439/",
   },
 ];
 

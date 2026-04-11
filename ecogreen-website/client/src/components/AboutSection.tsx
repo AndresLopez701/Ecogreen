@@ -160,9 +160,10 @@ export default function AboutSection() {
             <BlurFade delay={0.3}>
               <p className="font-body text-lg text-[#2C2C2C]/70 leading-[1.8] mb-6">
                 En <strong className="text-[#00A651] font-semibold">EcoGreen Soluciones</strong>,
-                transformamos la experiencia sanitaria en eventos al aire libre. Desde bodas
-                íntimas hasta grandes celebraciones corporativas, nuestras unidades portátiles
-                de lujo ofrecen la comodidad y elegancia que sus invitados merecen.
+                transformamos las experiencias sanitarias en eventos al aire libre.
+                Nuestras unidades sanitarias portátiles de lujo son la solución ideal
+                para cualquier tipo de evento, brindando la comodidad y elegancia
+                que sus invitados merecen.
               </p>
             </BlurFade>
 

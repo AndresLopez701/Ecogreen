@@ -13,31 +13,23 @@ import { Plus } from "lucide-react";
 const faqs = [
   {
     q: "¿Qué incluye exactamente cada unidad sanitaria?",
-    a: "Cada unidad viene equipada con inodoro de porcelana, lavamanos con agua corriente, espejo de cuerpo completo, aire acondicionado, iluminación LED regulable, dispensador de jabón de lujo, toallas de mano desechables, papel higiénico premium y ambientador automático. Todo listo para que sus invitados vivan una experiencia de cinco estrellas.",
-  },
-  {
-    q: "¿Cuántas unidades necesito para mi evento?",
-    a: "Como referencia, recomendamos 1 unidad por cada 80–100 personas para eventos de hasta 6 horas. Para eventos más largos o con mayor flujo, ajustamos esa proporción. Al contactarnos, le damos una recomendación exacta según el número de invitados, la duración y el tipo de evento.",
+    a: "Cada unidad viene equipada con inodoro de porcelana, lavamanos automáticos, espejo, aire acondicionado, iluminación LED regulable, dispensador de jabón, papel higiénico premium y ambientador automático. Todo listo para que sus invitados vivan una experiencia de cinco estrellas.",
   },
   {
     q: "¿Las unidades necesitan conexión de agua o electricidad del lugar?",
-    a: "No. Nuestras unidades son 100% autónomas: tienen tanque de agua propio y funcionan sin conexión a la red eléctrica del lugar. Si el espacio cuenta con servicios disponibles, podemos conectarlas para mayor capacidad y comodidad.",
-  },
-  {
-    q: "¿Cuánto tiempo antes llegan a instalar?",
-    a: "Nuestro equipo llega entre 2 y 3 horas antes del evento para instalación, nivelación y verificación completa de cada unidad. Garantizamos que todo esté impecable antes de que llegue el primer invitado.",
+    a: "Lo único que requerimos es acceso a un punto de agua para realizar el llenado inicial de nuestro tanque incorporado, y una conexión eléctrica de 110V. Del resto nos encargamos nosotros, sin complicaciones adicionales para usted.",
   },
   {
     q: "¿Hacen mantenimiento durante el evento?",
-    a: "Sí, para eventos desde cierto número de horas incluimos personal de asistencia que realiza mantenimiento periódico, repone insumos y atiende cualquier necesidad que surja. Su tranquilidad y la de sus invitados es nuestra prioridad.",
+    a: "¡Por supuesto! Nuestro servicio incluye una operaria dedicada, encargada de mantener las unidades en perfectas condiciones durante todo el evento. Su tranquilidad y la experiencia de sus invitados son nuestra prioridad.",
   },
   {
     q: "¿Con cuánta anticipación debo reservar?",
-    a: "Recomendamos reservar con mínimo 15 días de anticipación. En temporada alta (diciembre, junio y julio) y para fechas especiales como bodas, sugerimos hacerlo con al menos 4 semanas de anticipación para garantizar disponibilidad.",
+    a: "Recomendamos reservar con mínimo 15 días de anticipación. En temporada alta y para fechas especiales como bodas, sugerimos hacerlo con al menos 4 semanas de anticipación para garantizar disponibilidad.",
   },
   {
-    q: "¿Prestan servicio fuera de Cali?",
-    a: "Cubrimos toda el área metropolitana de Cali y el Valle del Cauca, incluyendo municipios como Palmira, Jamundí, Yumbo, Buenaventura y Tulúa. Para eventos fuera de esta zona, contáctenos y evaluamos la logística sin compromiso.",
+    q: "¿Prestan servicio a nivel nacional?",
+    a: "Llegamos a casi cualquier ciudad del país, contáctenos y lo planeamos juntos.",
   },
 ];
 
