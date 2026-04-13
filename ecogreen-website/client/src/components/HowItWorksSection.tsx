@@ -92,9 +92,8 @@ export default function HowItWorksSection() {
         <motion.div
           className="absolute inset-0 bg-[#0E1A12]"
           style={{ opacity: bg1Opacity }}
-        >
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_55%_at_65%_50%,rgba(0,166,81,0.09),transparent)]" />
-        </motion.div>
+        />
+
 
         {/* ══════════════════════════════════
             BACKGROUND 2 — instalación
