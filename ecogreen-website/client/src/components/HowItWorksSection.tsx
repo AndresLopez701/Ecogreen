@@ -126,8 +126,8 @@ export default function HowItWorksSection() {
         {/* ══════════════════════════════════
             SECTION LABEL
         ══════════════════════════════════ */}
-        <div className="absolute top-10 inset-x-0 z-30 flex justify-center pointer-events-none">
-          <span className="font-body text-[10px] uppercase tracking-[0.4em] text-white/25 px-4 py-1.5 border border-white/10 rounded-full">
+        <div className="absolute top-8 inset-x-0 z-30 flex justify-center pointer-events-none">
+          <span className="font-body text-xs uppercase tracking-[0.4em] text-[#D4A843] font-medium px-5 py-2 border border-[#D4A843]/30 rounded-full bg-[#D4A843]/5 backdrop-blur-sm">
             Nuestro Proceso
           </span>
         </div>
