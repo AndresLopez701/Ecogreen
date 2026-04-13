@@ -8,7 +8,6 @@
 import BlurFade from "@/components/animations/BlurFade";
 import ImageWithSkeleton from "@/components/ImageWithSkeleton";
 import GlassmorphismCard from "@/components/animations/GlassmorphismCard";
-import AnimatedGradientBg from "@/components/animations/AnimatedGradientBg";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Crown, Users, Building2, PartyPopper, Sparkles, Truck, Trophy } from "lucide-react";
@@ -64,7 +63,7 @@ export default function ServicesSection() {
       ref={ref}
     >
       {/* Animated gradient background */}
-      <AnimatedGradientBg variant="dark" />
+
 
       {/* Grain texture */}
 

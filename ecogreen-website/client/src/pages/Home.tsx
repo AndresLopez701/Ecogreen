@@ -23,7 +23,7 @@ import SectionReveal from "@/components/animations/SectionReveal";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col overflow-x-hidden">
+    <div className="min-h-screen flex flex-col" style={{ overflowX: "clip" }}>
       <Navbar />
       <main>
         <HeroSection />
@@ -41,9 +41,7 @@ export default function Home() {
         <SectionReveal>
           <WhyChooseUsSection />
         </SectionReveal>
-        <SectionReveal>
-          <HowItWorksSection />
-        </SectionReveal>
+        <HowItWorksSection />
         <SectionReveal>
           <TestimonialsSection />
         </SectionReveal>

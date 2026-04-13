@@ -7,7 +7,6 @@
 
 import BlurFade from "@/components/animations/BlurFade";
 import MagneticButton from "@/components/animations/MagneticButton";
-import AnimatedGradientBg from "@/components/animations/AnimatedGradientBg";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { MapPin, Phone, MessageCircle, Instagram, Mail, Music2, Facebook } from "lucide-react";
@@ -153,7 +152,7 @@ export default function ContactSection() {
   return (
     <section id="contacto" className="py-28 md:py-40 bg-[#1C3829] relative overflow-hidden" ref={ref}>
       {/* Animated gradient background */}
-      <AnimatedGradientBg variant="olive" />
+
 
 
       <div className="container relative z-10">

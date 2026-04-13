@@ -11,7 +11,6 @@ import { ChevronDown } from "lucide-react";
 import FlipWords from "@/components/animations/FlipWords";
 import BlurFade from "@/components/animations/BlurFade";
 import MagneticButton from "@/components/animations/MagneticButton";
-import AnimatedGradientBg from "@/components/animations/AnimatedGradientBg";
 import { WHATSAPP_URL } from "@shared/const";
 
 const flipWords = ["Bodas", "Eventos", "Celebraciones", "Fiestas"];
@@ -78,7 +77,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#2C2C2C]/55 via-[#2C2C2C]/35 to-[#2C2C2C]/75 z-10" />
 
       {/* Animated gradient orbs */}
-      <AnimatedGradientBg variant="dark" />
+
 
       {/* Content */}
       <motion.div className="relative z-20 container text-center px-4" style={{ opacity }}>

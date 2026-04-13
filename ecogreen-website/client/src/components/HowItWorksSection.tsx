@@ -1,173 +1,271 @@
 /*
- * HowItWorksSection - Ultra Pro EcoGreen
- * 4-step process timeline with numbered circles, connecting lines,
- * staggered scroll animations, responsive layout
- * Design: Hacienda Digital — premium, warm, exclusive
+ * HowItWorksSection — Apple Cinematic Scroll
+ * 3 pasos en sticky 300vh:
+ *   01 → Texto izquierda | Phone mockup derecha (dark bg)
+ *   02 → Texto izquierda | Fullbleed parallax
+ *   03 → Texto izquierda | Fullbleed parallax
+ * Cada paso: número gigante + tag + título + descripción
+ * Transiciones con crossfade + x-enter animado
  */
 
-import BlurFade from "@/components/animations/BlurFade";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { MessageSquare, ClipboardList, Truck, PartyPopper } from "lucide-react";
-
-const steps = [
-  {
-    icon: MessageSquare,
-    number: 1,
-    title: "Cotización",
-    desc: "Contáctenos por WhatsApp o formulario con los detalles de su evento.",
-  },
-  {
-    icon: ClipboardList,
-    number: 2,
-    title: "Planificación",
-    desc: "Evaluamos sus necesidades y recomendamos las unidades perfectas.",
-  },
-  {
-    icon: Truck,
-    number: 3,
-    title: "Instalación",
-    desc: "Instalamos todo antes de su evento con puntualidad garantizada.",
-  },
-  {
-    icon: PartyPopper,
-    number: 4,
-    title: "Disfrute",
-    desc: "Relájese y disfrute. Nos encargamos del mantenimiento durante todo el evento.",
-  },
-];
+import { motion, useTransform, useMotionValue } from "framer-motion";
+import { useRef, useEffect } from "react";
 
 export default function HowItWorksSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px" });
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Drive progress via native scroll listener to avoid framer-motion
+  // scroll-container detection issues with overflow-x: clip on the page wrapper
+  const scrollYProgress = useMotionValue(0);
+  useEffect(() => {
+    const update = () => {
+      if (!containerRef.current) return;
+      const top = containerRef.current.offsetTop;
+      const range = containerRef.current.offsetHeight - window.innerHeight;
+      scrollYProgress.set(Math.max(0, Math.min(1, (window.scrollY - top) / range)));
+    };
+    window.addEventListener("scroll", update, { passive: true });
+    update(); // initial
+    return () => window.removeEventListener("scroll", update);
+  }, [scrollYProgress]);
+
+  // ─────────────────────────────────────────
+  // Backgrounds
+  // ─────────────────────────────────────────
+  const bg1Opacity = useTransform(scrollYProgress, [0, 0.05, 0.27, 0.35], [0, 1, 1, 0]);
+  const bg2Opacity = useTransform(scrollYProgress, [0.29, 0.38, 0.60, 0.68], [0, 1, 1, 0]);
+  const bg3Opacity = useTransform(scrollYProgress, [0.63, 0.72, 0.95, 1.0], [0, 1, 1, 0]);
+
+  // ─────────────────────────────────────────
+  // Parallax on photo backgrounds
+  // ─────────────────────────────────────────
+  const bg2Y = useTransform(scrollYProgress, [0.29, 0.68], ["-8%", "8%"]);
+  const bg3Y = useTransform(scrollYProgress, [0.63, 1.0], ["-8%", "8%"]);
+
+  // ─────────────────────────────────────────
+  // Step 1 — text left
+  // ─────────────────────────────────────────
+  const t1Opacity = useTransform(scrollYProgress, [0, 0.07, 0.25, 0.34], [0, 1, 1, 0]);
+  const t1X      = useTransform(scrollYProgress, [0, 0.09], [-60, 0]);
+  // Step 1 — phone right
+  const p1Opacity = useTransform(scrollYProgress, [0, 0.07, 0.25, 0.34], [0, 1, 1, 0]);
+  const p1X       = useTransform(scrollYProgress, [0, 0.09], [80, 0]);
+  const p1Scale   = useTransform(scrollYProgress, [0, 0.09, 0.25, 0.34], [0.90, 1, 1, 0.92]);
+
+  // ─────────────────────────────────────────
+  // Step 2 — text
+  // ─────────────────────────────────────────
+  const t2Opacity = useTransform(scrollYProgress, [0.33, 0.42, 0.58, 0.67], [0, 1, 1, 0]);
+  const t2X       = useTransform(scrollYProgress, [0.33, 0.43], [-60, 0]);
+
+  // ─────────────────────────────────────────
+  // Step 3 — text
+  // ─────────────────────────────────────────
+  const t3Opacity = useTransform(scrollYProgress, [0.67, 0.76, 0.94, 1.0], [0, 1, 1, 0]);
+  const t3X       = useTransform(scrollYProgress, [0.67, 0.77], [-60, 0]);
+
+  // ─────────────────────────────────────────
+  // Step number watermarks
+  // ─────────────────────────────────────────
+  const n1Opacity = useTransform(scrollYProgress, [0, 0.06, 0.22, 0.33], [0, 0.06, 0.06, 0]);
+  const n2Opacity = useTransform(scrollYProgress, [0.33, 0.39, 0.55, 0.67], [0, 0.06, 0.06, 0]);
+  const n3Opacity = useTransform(scrollYProgress, [0.67, 0.73, 0.90, 1.0], [0, 0.06, 0.06, 0]);
+
+  // ─────────────────────────────────────────
+  // Progress bar + scroll hint
+  // ─────────────────────────────────────────
+  const progressH   = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const hintOpacity = useTransform(scrollYProgress, [0, 0.07], [1, 0]);
 
   return (
-    <section className="py-28 md:py-40 bg-[#F7F3ED] relative overflow-hidden" ref={ref}>
-      {/* Subtle decorative circles */}
-      <div className="absolute top-20 left-0 w-[500px] h-[500px] rounded-full bg-[#00A651]/[0.04] blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-[#00A651]/[0.03] blur-3xl" />
+    <section
+      id="como-funciona"
+      ref={containerRef}
+      className="relative"
+      style={{ height: "300vh" }}
+    >
+      <div className="sticky top-0 h-screen overflow-hidden bg-[#0E1A12]">
 
-      <div className="container relative z-10">
-        {/* Section header */}
-        <BlurFade delay={0.1} className="text-center mb-20">
-          <span className="inline-block font-body text-xs uppercase tracking-[0.4em] text-[#00A651] font-medium mb-4 px-4 py-1.5 border border-[#00A651]/20 rounded-full">
+        {/* ══════════════════════════════════
+            BACKGROUND 1 — dark green
+        ══════════════════════════════════ */}
+        <motion.div
+          className="absolute inset-0 bg-[#0E1A12]"
+          style={{ opacity: bg1Opacity }}
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_55%_at_65%_50%,rgba(0,166,81,0.09),transparent)]" />
+        </motion.div>
+
+        {/* ══════════════════════════════════
+            BACKGROUND 2 — instalación
+        ══════════════════════════════════ */}
+        <motion.div className="absolute inset-0 overflow-hidden" style={{ opacity: bg2Opacity }}>
+          <motion.img
+            src="/imgs/paso2-instalacion.jpg"
+            alt=""
+            className="absolute inset-0 w-full h-[115%] object-cover"
+            style={{ y: bg2Y }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0E1A12]/90 via-[#0E1A12]/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0E1A12]/70 via-transparent to-[#0E1A12]/30" />
+        </motion.div>
+
+        {/* ══════════════════════════════════
+            BACKGROUND 3 — disfrute
+        ══════════════════════════════════ */}
+        <motion.div className="absolute inset-0 overflow-hidden" style={{ opacity: bg3Opacity }}>
+          <motion.img
+            src="/imgs/paso3-disfrute.jpg"
+            alt=""
+            className="absolute inset-0 w-full h-[115%] object-cover"
+            style={{ y: bg3Y }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0E1A12]/90 via-[#0E1A12]/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0E1A12]/70 via-transparent to-[#0E1A12]/30" />
+        </motion.div>
+
+        {/* ══════════════════════════════════
+            SECTION LABEL
+        ══════════════════════════════════ */}
+        <div className="absolute top-10 inset-x-0 z-30 flex justify-center pointer-events-none">
+          <span className="font-body text-[10px] uppercase tracking-[0.4em] text-white/25 px-4 py-1.5 border border-white/10 rounded-full">
             Nuestro Proceso
           </span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-[#2C2C2C] mt-4">
-            Cómo
-          </h2>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold mt-1">
-            <span className="italic bg-gradient-to-r from-[#00A651] to-[#33B872] bg-clip-text text-transparent">
-              Funciona
-            </span>
-          </h2>
-        </BlurFade>
-
-        {/* Desktop timeline (horizontal) */}
-        <div className="hidden md:block">
-          <div className="relative max-w-5xl mx-auto">
-            {/* Connecting line */}
-            <motion.div
-              className="absolute top-[52px] left-[12%] right-[12%] h-px bg-gradient-to-r from-[#00A651]/10 via-[#00A651]/30 to-[#00A651]/10"
-              initial={{ scaleX: 0 }}
-              animate={isInView ? { scaleX: 1 } : {}}
-              transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
-              style={{ originX: 0 }}
-            />
-
-            <div className="grid grid-cols-4 gap-8">
-              {steps.map((step, i) => (
-                <motion.div
-                  key={step.number}
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{
-                    duration: 0.6,
-                    delay: 0.2 + i * 0.2,
-                    type: "spring",
-                    stiffness: 80,
-                    damping: 15,
-                  }}
-                  className="flex flex-col items-center text-center"
-                >
-                  {/* Icon circle */}
-                  <div className="relative mb-8">
-                    <div className="w-[104px] h-[104px] rounded-full bg-[#00A651]/8 flex items-center justify-center transition-all duration-500 hover:bg-[#00A651]/12 hover:shadow-[0_0_30px_rgba(0,166,81,0.15)]">
-                      <step.icon className="w-8 h-8 text-[#00A651]" />
-                    </div>
-                    {/* Number badge */}
-                    <div className="absolute -top-1 -right-1 w-8 h-8 rounded-full bg-[#00A651] flex items-center justify-center shadow-md">
-                      <span className="font-display text-sm font-bold text-white">
-                        {step.number}
-                      </span>
-                    </div>
-                  </div>
-
-                  <h3 className="font-display text-xl font-semibold text-[#2C2C2C] mb-3">
-                    {step.title}
-                  </h3>
-                  <p className="font-body text-sm text-[#2C2C2C]/55 leading-relaxed max-w-[220px]">
-                    {step.desc}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
         </div>
 
-        {/* Mobile timeline (vertical) */}
-        <div className="md:hidden">
-          <div className="relative max-w-sm mx-auto">
-            {/* Vertical connecting line */}
+        {/* ══════════════════════════════════
+            STEP 1 — CONTENT
+        ══════════════════════════════════ */}
+        {/* Watermark number */}
+        <motion.div
+          className="absolute inset-0 flex items-center justify-start pl-6 md:pl-14 pointer-events-none select-none z-10"
+          style={{ opacity: n1Opacity }}
+        >
+          <span className="font-display font-bold text-white leading-none"
+            style={{ fontSize: "clamp(160px, 30vw, 380px)" }}>
+            01
+          </span>
+        </motion.div>
+
+        {/* Text — left */}
+        <motion.div
+          className="absolute inset-0 z-20 flex flex-col justify-center px-8 md:px-16 max-w-[520px] pointer-events-none"
+          style={{ opacity: t1Opacity, x: t1X }}
+        >
+          <span className="inline-flex w-fit font-body text-[10px] uppercase tracking-[0.4em] text-[#00A651] mb-5 px-3 py-1 border border-[#00A651]/25 rounded-full">
+            Rápido y sin compromiso
+          </span>
+          <h2 className="font-display text-5xl md:text-7xl font-semibold text-white leading-tight mb-5">
+            Cotización y<br />
+            <span className="italic text-[#00A651]">Planificación</span>
+          </h2>
+          <p className="font-body text-base md:text-lg text-white/50 leading-relaxed">
+            Contáctenos por WhatsApp o formulario. Evaluamos sus necesidades y le enviamos una propuesta personalizada en minutos.
+          </p>
+        </motion.div>
+
+        {/* Phone — right */}
+        <motion.div
+          className="absolute right-0 top-0 bottom-0 z-20 flex items-center justify-center pr-8 md:pr-16 pointer-events-none"
+          style={{ opacity: p1Opacity, x: p1X, scale: p1Scale }}
+        >
+          <img
+            src="/imgs/paso1-cotizacion.png"
+            alt="Cotización WhatsApp"
+            className="h-[78vh] max-h-[640px] w-auto object-contain drop-shadow-2xl"
+          />
+        </motion.div>
+
+        {/* ══════════════════════════════════
+            STEP 2 — CONTENT
+        ══════════════════════════════════ */}
+        <motion.div
+          className="absolute inset-0 z-20 flex flex-col justify-center px-8 md:px-16 pointer-events-none"
+          style={{ opacity: t2Opacity, x: t2X }}
+        >
+          <motion.span
+            className="inline-flex w-fit font-body text-[10px] uppercase tracking-[0.4em] text-[#00A651] mb-5 px-3 py-1 border border-[#00A651]/25 rounded-full"
+          >
+            Puntualidad garantizada
+          </motion.span>
+          <h2 className="font-display text-5xl md:text-7xl font-semibold text-white leading-tight mb-5">
+            <span className="italic text-[#00A651]">Instalación</span>
+          </h2>
+          <p className="font-body text-base md:text-lg text-white/50 leading-relaxed max-w-md">
+            Llegamos antes de su evento e instalamos todo con puntualidad garantizada. Usted no mueve un dedo.
+          </p>
+        </motion.div>
+
+        <motion.div
+          className="absolute inset-0 flex items-center justify-start pl-6 md:pl-14 pointer-events-none select-none z-10"
+          style={{ opacity: n2Opacity }}
+        >
+          <span className="font-display font-bold text-white leading-none"
+            style={{ fontSize: "clamp(160px, 30vw, 380px)" }}>
+            02
+          </span>
+        </motion.div>
+
+        {/* ══════════════════════════════════
+            STEP 3 — CONTENT
+        ══════════════════════════════════ */}
+        <motion.div
+          className="absolute inset-0 z-20 flex flex-col justify-center px-8 md:px-16 pointer-events-none"
+          style={{ opacity: t3Opacity, x: t3X }}
+        >
+          <span className="inline-flex w-fit font-body text-[10px] uppercase tracking-[0.4em] text-[#00A651] mb-5 px-3 py-1 border border-[#00A651]/25 rounded-full">
+            Cero preocupaciones
+          </span>
+          <h2 className="font-display text-5xl md:text-7xl font-semibold text-white leading-tight mb-5">
+            Disfrute<br />
+            <span className="italic text-[#00A651]">su Evento</span>
+          </h2>
+          <p className="font-body text-base md:text-lg text-white/50 leading-relaxed max-w-md">
+            Relájese. Nuestra operaria se encarga del mantenimiento durante todo el evento para que sus invitados vivan la mejor experiencia.
+          </p>
+        </motion.div>
+
+        <motion.div
+          className="absolute inset-0 flex items-center justify-start pl-6 md:pl-14 pointer-events-none select-none z-10"
+          style={{ opacity: n3Opacity }}
+        >
+          <span className="font-display font-bold text-white leading-none"
+            style={{ fontSize: "clamp(160px, 30vw, 380px)" }}>
+            03
+          </span>
+        </motion.div>
+
+        {/* ══════════════════════════════════
+            PROGRESS BAR — right edge
+        ══════════════════════════════════ */}
+        <div className="absolute right-5 md:right-8 top-1/2 -translate-y-1/2 z-30 flex flex-col items-center gap-3">
+          <div className="relative w-px h-24 bg-white/10 rounded-full overflow-hidden">
             <motion.div
-              className="absolute left-[35px] top-0 bottom-0 w-px bg-gradient-to-b from-[#00A651]/10 via-[#00A651]/30 to-[#00A651]/10"
-              initial={{ scaleY: 0 }}
-              animate={isInView ? { scaleY: 1 } : {}}
-              transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
-              style={{ originY: 0 }}
+              className="absolute top-0 left-0 w-full bg-[#00A651] rounded-full"
+              style={{ height: progressH }}
             />
-
-            <div className="space-y-10">
-              {steps.map((step, i) => (
-                <motion.div
-                  key={step.number}
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{
-                    duration: 0.6,
-                    delay: 0.2 + i * 0.2,
-                    type: "spring",
-                    stiffness: 80,
-                    damping: 15,
-                  }}
-                  className="flex items-start gap-6"
-                >
-                  {/* Icon circle */}
-                  <div className="relative flex-shrink-0">
-                    <div className="w-[72px] h-[72px] rounded-full bg-[#00A651]/8 flex items-center justify-center">
-                      <step.icon className="w-6 h-6 text-[#00A651]" />
-                    </div>
-                    {/* Number badge */}
-                    <div className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-[#00A651] flex items-center justify-center shadow-md">
-                      <span className="font-display text-xs font-bold text-white">
-                        {step.number}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="pt-3">
-                    <h3 className="font-display text-lg font-semibold text-[#2C2C2C] mb-2">
-                      {step.title}
-                    </h3>
-                    <p className="font-body text-sm text-[#2C2C2C]/55 leading-relaxed">
-                      {step.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
           </div>
+          {/* Step dots */}
+          {[0, 1, 2].map((i) => (
+            <div key={i} className="w-1 h-1 rounded-full bg-white/20" />
+          ))}
         </div>
+
+        {/* ══════════════════════════════════
+            SCROLL HINT
+        ══════════════════════════════════ */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2 pointer-events-none"
+          style={{ opacity: hintOpacity }}
+        >
+          <span className="font-body text-[10px] uppercase tracking-[0.35em] text-white/25">Scroll</span>
+          <motion.div
+            className="w-px h-8 bg-gradient-to-b from-white/25 to-transparent"
+            animate={{ scaleY: [0.5, 1, 0.5] }}
+            transition={{ duration: 1.6, repeat: Infinity }}
+          />
+        </motion.div>
+
       </div>
     </section>
   );
