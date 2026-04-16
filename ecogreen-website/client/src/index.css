@@ -223,3 +223,15 @@ html {
   background: oklch(0.59 0.17 155 / 0.2);
   color: oklch(0.25 0.005 0);
 }
+
+/* Infinite logo marquee */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}

@@ -24,7 +24,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#1a1a1a] relative overflow-hidden">
+    <footer className="bg-[#060D09] relative overflow-hidden">
       {/* Grain texture */}
 
       {/* Top gradient line */}

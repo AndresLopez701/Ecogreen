@@ -82,12 +82,9 @@ export default function PackagesSection() {
   return (
     <section
       id="paquetes"
-      className="py-28 md:py-40 bg-[#F7F3ED] relative overflow-hidden"
+      className="py-28 md:py-40 bg-[#0A1510] relative overflow-hidden"
       ref={ref}
     >
-      {/* Subtle background decoration */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-[#00A651]/[0.025] blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-[#D4A843]/[0.03] blur-3xl" />
 
       <div className="container relative z-10">
         {/* Section header */}
@@ -95,7 +92,7 @@ export default function PackagesSection() {
           <span className="inline-block font-body text-xs uppercase tracking-[0.4em] text-[#D4A843] font-medium mb-4 px-4 py-1.5 border border-[#D4A843]/20 rounded-full">
             Nuestros Paquetes
           </span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-[#2C2C2C] mt-4">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-white mt-4">
             La Solución Perfecta
           </h2>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold mt-1">
@@ -103,7 +100,7 @@ export default function PackagesSection() {
               para su Evento
             </span>
           </h2>
-          <p className="font-body text-base text-[#2C2C2C]/50 max-w-xl mx-auto mt-6 leading-relaxed">
+          <p className="font-body text-base text-white/45 max-w-xl mx-auto mt-6 leading-relaxed">
             Seleccione el paquete que mejor se adapte a su celebración y
             contáctenos para recibir una cotización personalizada sin compromiso.
           </p>
@@ -127,8 +124,8 @@ export default function PackagesSection() {
                 }}
                 className={`relative flex flex-col rounded-3xl overflow-hidden transition-all duration-500 group hover:-translate-y-2 ${
                   pkg.highlight
-                    ? "bg-[#1C3829] shadow-[0_20px_60px_rgba(0,166,81,0.18)] border border-[#00A651]/20"
-                    : "bg-white border border-[#2C2C2C]/[0.07] shadow-[0_8px_32px_rgba(0,0,0,0.05)]"
+                    ? "bg-[#0E2A1C] shadow-[0_20px_60px_rgba(0,166,81,0.18)] border border-[#00A651]/20"
+                    : "bg-white/5 border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.2)]"
                 }`}
               >
                 {/* Popular badge ribbon */}
@@ -162,7 +159,7 @@ export default function PackagesSection() {
                   {/* Name */}
                   <h3
                     className={`font-display text-3xl font-semibold mb-1 ${
-                      pkg.highlight ? "text-white" : "text-[#2C2C2C]"
+                      pkg.highlight ? "text-white" : "text-white"
                     }`}
                   >
                     {pkg.name}
@@ -180,7 +177,7 @@ export default function PackagesSection() {
                   {/* Description */}
                   <p
                     className={`font-body text-sm leading-relaxed mb-8 ${
-                      pkg.highlight ? "text-white/55" : "text-[#2C2C2C]/55"
+                      pkg.highlight ? "text-white/55" : "text-white/55"
                     }`}
                   >
                     {pkg.description}
@@ -189,7 +186,7 @@ export default function PackagesSection() {
                   {/* Divider */}
                   <div
                     className={`w-full h-px mb-8 ${
-                      pkg.highlight ? "bg-white/[0.08]" : "bg-[#2C2C2C]/[0.07]"
+                      pkg.highlight ? "bg-white/[0.08]" : "bg-white/[0.08]"
                     }`}
                   />
 
@@ -211,7 +208,7 @@ export default function PackagesSection() {
                         </div>
                         <span
                           className={`font-body text-sm leading-snug ${
-                            pkg.highlight ? "text-white/70" : "text-[#2C2C2C]/70"
+                            pkg.highlight ? "text-white/70" : "text-white/65"
                           }`}
                         >
                           {feat}
@@ -241,7 +238,7 @@ export default function PackagesSection() {
 
         {/* Bottom note */}
         <BlurFade delay={0.6} className="text-center mt-14">
-          <p className="font-body text-sm text-[#2C2C2C]/40 max-w-lg mx-auto">
+          <p className="font-body text-sm text-white/40 max-w-lg mx-auto">
             Todos los paquetes son personalizables según la duración, número de
             invitados y necesidades específicas de su evento.{" "}
             <a

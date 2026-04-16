@@ -59,7 +59,7 @@ export default function ServicesSection() {
   return (
     <section
       id="servicios"
-      className="py-28 md:py-40 bg-[#2C2C2C] relative overflow-hidden"
+      className="py-28 md:py-40 bg-[#0A1510] relative overflow-hidden"
       ref={ref}
     >
       {/* Animated gradient background */}
@@ -102,7 +102,7 @@ export default function ServicesSection() {
               className="w-full h-full min-h-[400px] object-cover transition-transform duration-[1.2s] group-hover:scale-105"
               skeletonClassName="min-h-[400px] bg-gradient-to-r from-[#2a2a2a] via-[#333] to-[#2a2a2a]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#2C2C2C]/80 via-[#2C2C2C]/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A1510]/80 via-[#0A1510]/20 to-transparent" />
             <div className="absolute bottom-8 left-8 right-8">
               <p className="font-display text-3xl font-semibold text-white">
                 Unidades de Lujo

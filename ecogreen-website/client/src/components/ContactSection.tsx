@@ -150,7 +150,7 @@ export default function ContactSection() {
     }`;
 
   return (
-    <section id="contacto" className="py-28 md:py-40 bg-[#1C3829] relative overflow-hidden" ref={ref}>
+    <section id="contacto" className="py-28 md:py-40 bg-[#0A1510] relative overflow-hidden" ref={ref}>
       {/* Animated gradient background */}
 
 
@@ -248,8 +248,6 @@ export default function ContactSection() {
               onSubmit={handleSubmit}
               className="relative bg-white/[0.04] backdrop-blur-2xl border border-white/[0.08] rounded-2xl p-8 md:p-10 space-y-5 overflow-hidden"
             >
-              {/* Subtle glow in corner */}
-              <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#D4A843]/10 rounded-full blur-3xl" />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 relative z-10">
                 <div>
@@ -300,12 +298,12 @@ export default function ContactSection() {
                     onBlur={() => handleBlur("evento")}
                     className={inputClasses("evento")}
                   >
-                    <option value="" className="text-[#2C2C2C] bg-white">Seleccione...</option>
-                    <option value="Boda" className="text-[#2C2C2C] bg-white">Boda</option>
-                    <option value="Evento Corporativo" className="text-[#2C2C2C] bg-white">Evento Corporativo</option>
-                    <option value="Fiesta Privada" className="text-[#2C2C2C] bg-white">Fiesta Privada</option>
-                    <option value="Festival" className="text-[#2C2C2C] bg-white">Festival</option>
-                    <option value="Otro" className="text-[#2C2C2C] bg-white">Otro</option>
+                    <option value="" className="text-white bg-[#0A1510]">Seleccione...</option>
+                    <option value="Boda" className="text-white bg-[#0A1510]">Boda</option>
+                    <option value="Evento Corporativo" className="text-white bg-[#0A1510]">Evento Corporativo</option>
+                    <option value="Fiesta Privada" className="text-white bg-[#0A1510]">Fiesta Privada</option>
+                    <option value="Festival" className="text-white bg-[#0A1510]">Festival</option>
+                    <option value="Otro" className="text-white bg-[#0A1510]">Otro</option>
                   </select>
                   {touched.evento && currentErrors.evento && (
                     <p className="font-body text-xs text-red-400 mt-1.5">{currentErrors.evento}</p>

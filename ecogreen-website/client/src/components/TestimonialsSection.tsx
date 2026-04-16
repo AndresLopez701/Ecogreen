@@ -89,11 +89,9 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="py-28 md:py-40 bg-[#2C2C2C] relative overflow-hidden">
+    <section className="py-28 md:py-40 bg-[#0E1A12] relative overflow-hidden">
       {/* Subtle grain */}
 
-      {/* Decorative glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#D4A843]/[0.03] blur-3xl" />
 
       <div className="container relative z-10">
         {/* Section header */}

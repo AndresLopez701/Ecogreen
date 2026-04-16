@@ -55,20 +55,20 @@ function FAQItem({
         stiffness: 100,
         damping: 15,
       }}
-      className="border-b border-[#2C2C2C]/8 last:border-b-0"
+      className="border-b border-white/[0.08] last:border-b-0"
     >
       <button
         onClick={onToggle}
         className="w-full flex items-center justify-between py-6 text-left group"
         aria-expanded={isOpen}
       >
-        <span className="font-display text-lg md:text-xl font-semibold text-[#2C2C2C] pr-8 group-hover:text-[#00A651] transition-colors duration-300">
+        <span className="font-display text-lg md:text-xl font-semibold text-white pr-8 group-hover:text-[#00A651] transition-colors duration-300">
           {faq.q}
         </span>
         <motion.div
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.3, type: "spring", stiffness: 200, damping: 15 }}
-          className="flex-shrink-0 w-10 h-10 rounded-full bg-[#00A651]/8 flex items-center justify-center group-hover:bg-[#00A651]/12 transition-colors duration-300"
+          className="flex-shrink-0 w-10 h-10 rounded-full bg-[#00A651]/[0.12] flex items-center justify-center group-hover:bg-[#00A651]/20 transition-colors duration-300"
         >
           <Plus className="w-5 h-5 text-[#00A651]" />
         </motion.div>
@@ -86,7 +86,7 @@ function FAQItem({
             }}
             className="overflow-hidden"
           >
-            <p className="font-body text-base text-[#2C2C2C]/60 leading-relaxed pb-6 pr-16">
+            <p className="font-body text-base text-white/55 leading-relaxed pb-6 pr-16">
               {faq.a}
             </p>
           </motion.div>
@@ -102,10 +102,7 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-28 md:py-40 bg-[#F7F3ED] relative overflow-hidden" ref={ref}>
-      {/* Subtle decorative circles */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#00A651]/[0.02] blur-3xl" />
-      <div className="absolute bottom-20 left-0 w-[400px] h-[400px] rounded-full bg-[#D4A843]/[0.03] blur-3xl" />
+    <section className="py-28 md:py-40 bg-[#0E1A12] relative overflow-hidden" ref={ref}>
 
       <div className="container relative z-10">
         {/* Section header */}
@@ -113,7 +110,7 @@ export default function FAQSection() {
           <span className="inline-block font-body text-xs uppercase tracking-[0.4em] text-[#D4A843] font-medium mb-4 px-4 py-1.5 border border-[#D4A843]/20 rounded-full">
             FAQ
           </span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-[#2C2C2C] mt-4">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-white mt-4">
             Preguntas
           </h2>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold mt-1">
@@ -125,7 +122,7 @@ export default function FAQSection() {
 
         {/* Accordion */}
         <div className="max-w-3xl mx-auto">
-          <div className="bg-white/60 backdrop-blur-xl border border-white/40 rounded-2xl px-8 md:px-12 shadow-[0_8px_40px_rgba(0,0,0,0.04)]">
+          <div className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl px-8 md:px-12 shadow-[0_8px_40px_rgba(0,0,0,0.3)]">
             {isInView &&
               faqs.map((faq, i) => (
                 <FAQItem

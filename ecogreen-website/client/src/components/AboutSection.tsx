@@ -110,12 +110,12 @@ export default function AboutSection() {
   return (
     <section
       id="nosotros"
-      className="py-28 md:py-40 bg-[#F7F3ED] relative overflow-hidden"
+      className="py-28 md:py-40 bg-[#0E1A12] relative overflow-hidden"
       ref={ref}
     >
-      {/* Subtle decorative circles */}
-      <div className="absolute top-20 right-0 w-[500px] h-[500px] rounded-full bg-[#00A651]/[0.02] blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#D4A843]/[0.03] blur-3xl" />
+      {/* Subtle top/bottom edge lines */}
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#00A651]/30 to-transparent" />
+      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#00A651]/30 to-transparent" />
 
       <div className="container relative z-10">
         {/* Section header */}
@@ -123,7 +123,7 @@ export default function AboutSection() {
           <span className="inline-block font-body text-xs uppercase tracking-[0.4em] text-[#D4A843] font-medium mb-4 px-4 py-1.5 border border-[#D4A843]/20 rounded-full">
             Sobre Nosotros
           </span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-[#2C2C2C] mt-4">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-white mt-4">
             Más que un Servicio,
           </h2>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold mt-1">
@@ -145,11 +145,11 @@ export default function AboutSection() {
               <div className="absolute -bottom-5 -right-5 w-full h-full border-2 border-[#D4A843]/15 rounded-2xl -z-10" />
               {/* Floating accent badge — luxury medallion seal */}
               <motion.div
-                className="absolute -top-5 -left-5 w-20 h-20 rounded-full bg-[#00A651] text-white flex flex-col items-center justify-center shadow-[0_8px_32px_rgba(0,166,81,0.4)] ring-4 ring-white/20"
+                className="absolute top-3 left-3 lg:-top-5 lg:-left-5 w-20 h-20 rounded-full bg-[#00A651] text-white flex flex-col items-center justify-center shadow-[0_8px_32px_rgba(0,166,81,0.4)] ring-4 ring-white/20"
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >
-                <span className="font-display text-2xl font-bold leading-none">5+</span>
+                <span className="font-display text-2xl font-bold leading-none">7+</span>
                 <span className="font-body text-[10px] uppercase tracking-wider text-white/70 mt-0.5">Años</span>
               </motion.div>
             </div>
@@ -158,21 +158,23 @@ export default function AboutSection() {
           {/* Text content */}
           <div>
             <BlurFade delay={0.3}>
-              <p className="font-body text-lg text-[#2C2C2C]/70 leading-[1.8] mb-6">
+              <p className="font-body text-lg text-white/70 leading-[1.8] mb-6">
                 En <strong className="text-[#00A651] font-semibold">EcoGreen Soluciones</strong>,
-                transformamos las experiencias sanitarias en eventos al aire libre.
-                Nuestras unidades sanitarias portátiles de lujo son la solución ideal
-                para cualquier tipo de evento, brindando la comodidad y elegancia
-                que sus invitados merecen.
+                redefinimos el concepto de bienestar en eventos al aire libre.
+                Nuestras unidades no son baños portátiles — son espacios de lujo
+                con aire acondicionado, iluminación ambiental y acabados premium
+                que sus invitados simplemente no esperarán encontrar.
               </p>
             </BlurFade>
 
             <BlurFade delay={0.4}>
-              <p className="font-body text-lg text-[#2C2C2C]/70 leading-[1.8] mb-12">
-                Con sede en <strong className="text-[#00A651] font-semibold">Cali, Colombia</strong>,
-                llevamos años brindando un servicio excepcional en los eventos más exclusivos
-                de Colombia. Cada unidad cuenta con acabados premium, aire acondicionado,
-                iluminación ambiental y productos de higiene de primera calidad.
+              <p className="font-body text-lg text-white/70 leading-[1.8] mb-12">
+                Con sede en <strong className="text-[#00A651] font-semibold">Cali, Colombia</strong>
+                {" "}y más de <strong className="text-white font-semibold">7 años de experiencia</strong>,
+                hemos estado presentes en más de{" "}
+                <strong className="text-white font-semibold">400 eventos</strong> — desde
+                bodas de élite hasta festivales internacionales. Cada detalle
+                de su evento importa. Incluso los que nadie espera.
               </p>
             </BlurFade>
 
@@ -207,16 +209,35 @@ export default function AboutSection() {
                     <item.icon className="w-6 h-6" style={{ color: item.color }} />
                   </div>
                   <div>
-                    <h3 className="font-display text-xl font-semibold text-[#2C2C2C] mb-1">
+                    <h3 className="font-display text-xl font-semibold text-white mb-1">
                       {item.title}
                     </h3>
-                    <p className="font-body text-base text-[#2C2C2C]/60 leading-relaxed">
+                    <p className="font-body text-base text-white/55 leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
                 </motion.div>
               ))}
             </div>
+
+            {/* Closing quote + CTA */}
+            <BlurFade delay={0.9}>
+              <div className="mt-12 pt-10 border-t border-white/10">
+                <p className="font-display text-xl md:text-2xl italic text-white/50 leading-snug mb-8">
+                  "Sus invitados merecen lo mejor —{" "}
+                  <span className="text-[#D4A843]/80">hasta en los detalles que no esperan."</span>
+                </p>
+                <a
+                  href="#contacto"
+                  className="inline-flex items-center gap-3 bg-[#00A651] hover:bg-[#00b859] text-white font-body text-sm uppercase tracking-[0.2em] font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-[0_8px_30px_rgba(0,166,81,0.25)] hover:shadow-[0_8px_40px_rgba(0,166,81,0.4)] hover:-translate-y-0.5"
+                >
+                  Solicitar Cotización
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </div>
+            </BlurFade>
           </div>
         </div>
       </div>
