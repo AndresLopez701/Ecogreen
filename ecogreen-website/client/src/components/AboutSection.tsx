@@ -110,20 +110,20 @@ export default function AboutSection() {
   return (
     <section
       id="nosotros"
-      className="py-28 md:py-40 bg-[#0E1A12] relative overflow-hidden"
+      className="py-28 md:py-40 bg-[#F7F4EF] relative overflow-hidden"
       ref={ref}
     >
       {/* Subtle top/bottom edge lines */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#00A651]/30 to-transparent" />
-      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#00A651]/30 to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4A843]/30 to-transparent" />
+      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4A843]/30 to-transparent" />
 
       <div className="container relative z-10">
         {/* Section header */}
         <BlurFade delay={0.1} className="text-center mb-20">
-          <span className="inline-block font-body text-xs uppercase tracking-[0.4em] text-[#D4A843] font-medium mb-4 px-4 py-1.5 border border-[#D4A843]/20 rounded-full">
+          <span className="inline-block font-body text-xs uppercase tracking-[0.4em] text-[#D4A843] font-medium mb-4 px-4 py-1.5 border border-[#D4A843]/40 rounded-full">
             Sobre Nosotros
           </span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-white mt-4">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-[#0E1A12] mt-4">
             Más que un Servicio,
           </h2>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold mt-1">
@@ -142,7 +142,7 @@ export default function AboutSection() {
                 <ImageSlideshow />
               </div>
               {/* Decorative frame */}
-              <div className="absolute -bottom-5 -right-5 w-full h-full border-2 border-[#D4A843]/15 rounded-2xl -z-10" />
+              <div className="absolute -bottom-5 -right-5 w-full h-full border-2 border-[#D4A843]/25 rounded-2xl -z-10" />
               {/* Floating accent badge — luxury medallion seal */}
               <motion.div
                 className="absolute top-3 left-3 lg:-top-5 lg:-left-5 w-20 h-20 rounded-full bg-[#00A651] text-white flex flex-col items-center justify-center shadow-[0_8px_32px_rgba(0,166,81,0.4)] ring-4 ring-white/20"
@@ -158,7 +158,7 @@ export default function AboutSection() {
           {/* Text content */}
           <div>
             <BlurFade delay={0.3}>
-              <p className="font-body text-lg text-white/70 leading-[1.8] mb-6">
+              <p className="font-body text-lg text-[#0E1A12]/65 leading-[1.8] mb-6">
                 En <strong className="text-[#00A651] font-semibold">EcoGreen Soluciones</strong>,
                 redefinimos el concepto de bienestar en eventos al aire libre.
                 Nuestras unidades no son baños portátiles — son espacios de lujo
@@ -168,11 +168,11 @@ export default function AboutSection() {
             </BlurFade>
 
             <BlurFade delay={0.4}>
-              <p className="font-body text-lg text-white/70 leading-[1.8] mb-12">
+              <p className="font-body text-lg text-[#0E1A12]/65 leading-[1.8] mb-12">
                 Con sede en <strong className="text-[#00A651] font-semibold">Cali, Colombia</strong>
-                {" "}y más de <strong className="text-white font-semibold">7 años de experiencia</strong>,
+                {" "}y más de <strong className="text-[#0E1A12] font-semibold">7 años de experiencia</strong>,
                 hemos estado presentes en más de{" "}
-                <strong className="text-white font-semibold">400 eventos</strong> — desde
+                <strong className="text-[#0E1A12] font-semibold">400 eventos</strong> — desde
                 bodas de élite hasta festivales internacionales. Cada detalle
                 de su evento importa. Incluso los que nadie espera.
               </p>
@@ -209,10 +209,10 @@ export default function AboutSection() {
                     <item.icon className="w-6 h-6" style={{ color: item.color }} />
                   </div>
                   <div>
-                    <h3 className="font-display text-xl font-semibold text-white mb-1">
+                    <h3 className="font-display text-xl font-semibold text-[#0E1A12] mb-1">
                       {item.title}
                     </h3>
-                    <p className="font-body text-base text-white/55 leading-relaxed">
+                    <p className="font-body text-base text-[#0E1A12]/55 leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
@@ -222,8 +222,8 @@ export default function AboutSection() {
 
             {/* Closing quote + CTA */}
             <BlurFade delay={0.9}>
-              <div className="mt-12 pt-10 border-t border-white/10">
-                <p className="font-display text-xl md:text-2xl italic text-white/50 leading-snug mb-8">
+              <div className="mt-12 pt-10 border-t border-[#0E1A12]/10">
+                <p className="font-display text-xl md:text-2xl italic text-[#0E1A12]/45 leading-snug mb-8">
                   "Sus invitados merecen lo mejor —{" "}
                   <span className="text-[#D4A843]/80">hasta en los detalles que no esperan."</span>
                 </p>

@@ -30,11 +30,9 @@ export default function Home() {
         <SectionReveal>
           <AboutSection />
         </SectionReveal>
-        <SectionDivider variant="cream-to-dark" />
         <SectionReveal>
           <ServicesSection />
         </SectionReveal>
-        <SectionDivider variant="dark-to-cream" flip />
         <SectionReveal>
           <GallerySection />
         </SectionReveal>
