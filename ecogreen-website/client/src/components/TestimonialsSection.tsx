@@ -40,6 +40,13 @@ const testimonials = [
     avatarColor: "#F4B400",
     initials: "MO",
   },
+  {
+    quote:
+      "Contratamos a EcoGreen para un evento empresarial y la verdad superaron todas las expectativas. Llegaron a tiempo, las unidades estaban impecables y el servicio durante el evento fue muy profesional. Sin duda los vuelvo a contratar para un siguiente evento.",
+    name: "Andrés López",
+    avatarColor: "#4285F4",
+    initials: "AL",
+  },
 ];
 
 // ── Google G Logo ────────────────────────────────────────────────
