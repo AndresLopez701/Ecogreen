@@ -46,7 +46,7 @@ export default function Footer() {
             </a>
             <p className="font-body text-sm text-white/30 mt-5 leading-[1.8] max-w-xs">
               Unidades sanitarias de lujo para todos los eventos.
-              Elevando la experiencia de sus invitados en Cali, Colombia.
+              Elevando la experiencia de sus invitados en Colombia.
             </p>
           </div>
 
