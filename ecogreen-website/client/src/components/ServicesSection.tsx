@@ -59,7 +59,7 @@ export default function ServicesSection() {
   return (
     <section
       id="servicios"
-      className="py-28 md:py-40 bg-[#0A1510] relative overflow-hidden"
+      className="py-28 md:py-40 bg-[#F7F4EF] relative overflow-hidden"
       ref={ref}
     >
       {/* Animated gradient background */}
@@ -70,10 +70,10 @@ export default function ServicesSection() {
       <div className="container relative z-10">
         {/* Section header */}
         <BlurFade delay={0.1} className="text-center mb-20">
-          <span className="inline-block font-body text-xs uppercase tracking-[0.4em] text-[#D4A843] font-medium mb-4 px-4 py-1.5 border border-[#D4A843]/20 rounded-full backdrop-blur-sm">
+          <span className="inline-block font-body text-xs uppercase tracking-[0.4em] text-[#D4A843] font-medium mb-4 px-4 py-1.5 border border-[#D4A843]/40 rounded-full">
             Nuestros Servicios
           </span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-white mt-4">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-[#0E1A12] mt-4">
             Soluciones para
           </h2>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold mt-1">
@@ -81,7 +81,7 @@ export default function ServicesSection() {
               Cada Evento
             </span>
           </h2>
-          <p className="font-body text-base text-white/40 max-w-xl mx-auto mt-6 leading-relaxed">
+          <p className="font-body text-base text-[#0E1A12]/50 max-w-xl mx-auto mt-6 leading-relaxed">
             Ofrecemos una gama completa de unidades sanitarias portátiles de lujo,
             adaptadas a las necesidades específicas de cada tipo de evento.
           </p>
@@ -129,16 +129,16 @@ export default function ServicesSection() {
               }}
             >
               <GlassmorphismCard
-                variant="dark"
-                className="p-7 h-full"
+                variant="light"
+                className="p-7 h-full bg-white border-[#0E1A12]/[0.07]"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#00A651]/20 flex items-center justify-center mb-5 transition-all duration-500 group-hover:bg-[#00A651]/30">
+                <div className="w-12 h-12 rounded-xl bg-[#00A651]/15 flex items-center justify-center mb-5 transition-all duration-500 group-hover:bg-[#00A651]/25">
                   <service.icon className="w-5 h-5 text-[#D4A843]" />
                 </div>
-                <h3 className="font-display text-xl font-semibold text-white mb-2">
+                <h3 className="font-display text-xl font-semibold text-[#0E1A12] mb-2">
                   {service.title}
                 </h3>
-                <p className="font-body text-sm text-white/45 leading-relaxed">
+                <p className="font-body text-sm text-[#0E1A12]/55 leading-relaxed">
                   {service.desc}
                 </p>
               </GlassmorphismCard>

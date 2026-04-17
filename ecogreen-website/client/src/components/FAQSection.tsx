@@ -55,14 +55,14 @@ function FAQItem({
         stiffness: 100,
         damping: 15,
       }}
-      className="border-b border-white/[0.08] last:border-b-0"
+      className="border-b border-[#0E1A12]/[0.08] last:border-b-0"
     >
       <button
         onClick={onToggle}
         className="w-full flex items-center justify-between py-6 text-left group"
         aria-expanded={isOpen}
       >
-        <span className="font-display text-lg md:text-xl font-semibold text-white pr-8 group-hover:text-[#00A651] transition-colors duration-300">
+        <span className="font-display text-lg md:text-xl font-semibold text-[#0E1A12] pr-8 group-hover:text-[#00A651] transition-colors duration-300">
           {faq.q}
         </span>
         <motion.div
@@ -86,7 +86,7 @@ function FAQItem({
             }}
             className="overflow-hidden"
           >
-            <p className="font-body text-base text-white/55 leading-relaxed pb-6 pr-16">
+            <p className="font-body text-base text-[#0E1A12]/60 leading-relaxed pb-6 pr-16">
               {faq.a}
             </p>
           </motion.div>
@@ -102,15 +102,15 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-28 md:py-40 bg-[#0E1A12] relative overflow-hidden" ref={ref}>
+    <section className="py-28 md:py-40 bg-[#F7F4EF] relative overflow-hidden" ref={ref}>
 
       <div className="container relative z-10">
         {/* Section header */}
         <BlurFade delay={0.1} className="text-center mb-20">
-          <span className="inline-block font-body text-xs uppercase tracking-[0.4em] text-[#D4A843] font-medium mb-4 px-4 py-1.5 border border-[#D4A843]/20 rounded-full">
+          <span className="inline-block font-body text-xs uppercase tracking-[0.4em] text-[#D4A843] font-medium mb-4 px-4 py-1.5 border border-[#D4A843]/40 rounded-full">
             FAQ
           </span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-white mt-4">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-[#0E1A12] mt-4">
             Preguntas
           </h2>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold mt-1">
@@ -122,7 +122,7 @@ export default function FAQSection() {
 
         {/* Accordion */}
         <div className="max-w-3xl mx-auto">
-          <div className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl px-8 md:px-12 shadow-[0_8px_40px_rgba(0,0,0,0.3)]">
+          <div className="bg-white border border-[#0E1A12]/[0.07] rounded-2xl px-8 md:px-12 shadow-[0_4px_30px_rgba(0,0,0,0.06)]">
             {isInView &&
               faqs.map((faq, i) => (
                 <FAQItem
