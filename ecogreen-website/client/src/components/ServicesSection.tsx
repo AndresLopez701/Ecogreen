@@ -92,7 +92,7 @@ export default function ServicesSection() {
                   Unidades <span className="italic text-[#D4A843]">VIP</span>
                 </h3>
                 <p className="font-body text-sm text-white/50 leading-relaxed">
-                  AC, espejo, lavamanos automáticos, iluminación ambiental y amenidades de primera clase.
+                  Aire acondicionado, espejo, lavamanos automáticos, iluminación ambiental y amenidades de primera clase.
                 </p>
               </div>
             </div>
