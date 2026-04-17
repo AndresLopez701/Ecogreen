@@ -124,7 +124,7 @@ export default function WhyChooseUsSection() {
               {[...logos, ...logos].map((logo, i) => (
                 <div
                   key={i}
-                  className="flex-shrink-0 h-20 w-48 flex items-center justify-center px-3 py-2 transition-all duration-400 group/logo"
+                  className="flex-shrink-0 h-14 w-32 md:h-20 md:w-48 flex items-center justify-center px-3 py-2 transition-all duration-400 group/logo"
                 >
                   <img
                     src={logo.src}

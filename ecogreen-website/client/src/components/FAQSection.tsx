@@ -62,7 +62,7 @@ function FAQItem({
         className="w-full flex items-center justify-between py-6 text-left group"
         aria-expanded={isOpen}
       >
-        <span className="font-display text-lg md:text-xl font-semibold text-[#0E1A12] pr-8 group-hover:text-[#00A651] transition-colors duration-300">
+        <span className="font-display text-base md:text-lg lg:text-xl font-semibold text-[#0E1A12] pr-4 md:pr-8 group-hover:text-[#00A651] transition-colors duration-300">
           {faq.q}
         </span>
         <motion.div
@@ -86,7 +86,7 @@ function FAQItem({
             }}
             className="overflow-hidden"
           >
-            <p className="font-body text-base text-[#0E1A12]/60 leading-relaxed pb-6 pr-16">
+            <p className="font-body text-base text-[#0E1A12]/60 leading-relaxed pb-6 pr-4 md:pr-16">
               {faq.a}
             </p>
           </motion.div>
@@ -122,7 +122,7 @@ export default function FAQSection() {
 
         {/* Accordion */}
         <div className="max-w-3xl mx-auto">
-          <div className="bg-white border border-[#0E1A12]/[0.07] rounded-2xl px-8 md:px-12 shadow-[0_4px_30px_rgba(0,0,0,0.06)]">
+          <div className="bg-white border border-[#0E1A12]/[0.07] rounded-2xl px-4 sm:px-8 md:px-12 shadow-[0_4px_30px_rgba(0,0,0,0.06)]">
             {isInView &&
               faqs.map((faq, i) => (
                 <FAQItem

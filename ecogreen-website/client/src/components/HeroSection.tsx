@@ -94,13 +94,13 @@ export default function HeroSection() {
 
         {/* Main heading with FlipWords */}
         <BlurFade delay={0.4} yOffset={30}>
-          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-semibold text-white leading-[1.05] mb-4">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-semibold text-white leading-[1.05] mb-4">
             Unidades Sanitarias
           </h1>
         </BlurFade>
 
         <BlurFade delay={0.6} yOffset={30}>
-          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-semibold leading-[1.05] mb-3">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-semibold leading-[1.05] mb-3">
             <span className="italic bg-gradient-to-r from-[#D4A843] to-[#E0C06A] bg-clip-text text-transparent">
               de Lujo
             </span>
@@ -109,7 +109,7 @@ export default function HeroSection() {
 
         {/* Flip words line — synced interval with video */}
         <BlurFade delay={0.8} yOffset={20}>
-          <p className="font-display text-2xl md:text-3xl text-white/60 mb-4">
+          <p className="font-display text-xl sm:text-2xl md:text-3xl text-white/60 mb-4">
             para{" "}
             <FlipWords
               words={flipWords}

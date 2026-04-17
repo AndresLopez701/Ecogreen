@@ -141,20 +141,20 @@ export default function HowItWorksSection() {
           style={{ opacity: n1Opacity }}
         >
           <span className="font-display font-bold text-white leading-none"
-            style={{ fontSize: "clamp(160px, 30vw, 380px)" }}>
+            style={{ fontSize: "clamp(100px, 25vw, 380px)" }}>
             01
           </span>
         </motion.div>
 
         {/* Text — left (top on mobile, center on desktop) */}
         <motion.div
-          className="absolute inset-0 z-20 flex flex-col justify-start pt-20 md:justify-center md:pt-0 px-8 md:px-16 max-w-[520px] pointer-events-none"
+          className="absolute inset-0 z-20 flex flex-col justify-start pt-20 md:justify-center md:pt-0 px-6 md:px-16 w-full md:max-w-[520px] pointer-events-none"
           style={{ opacity: t1Opacity, x: t1X }}
         >
           <span className="inline-flex w-fit font-body text-[10px] uppercase tracking-[0.4em] text-[#00A651] mb-5 px-3 py-1 border border-[#00A651]/25 rounded-full">
             Rápido y sin compromiso
           </span>
-          <h2 className="font-display text-5xl md:text-7xl font-semibold text-white leading-tight mb-5">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-semibold text-white leading-tight mb-5">
             Cotización y<br />
             <span className="italic text-[#00A651]">Planificación</span>
           </h2>
@@ -187,7 +187,7 @@ export default function HowItWorksSection() {
           >
             Puntualidad garantizada
           </motion.span>
-          <h2 className="font-display text-5xl md:text-7xl font-semibold text-white leading-tight mb-5">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-semibold text-white leading-tight mb-5">
             <span className="italic text-[#00A651]">Instalación</span>
           </h2>
           <p className="font-body text-base md:text-lg text-white/50 leading-relaxed max-w-md">
@@ -200,7 +200,7 @@ export default function HowItWorksSection() {
           style={{ opacity: n2Opacity }}
         >
           <span className="font-display font-bold text-white leading-none"
-            style={{ fontSize: "clamp(160px, 30vw, 380px)" }}>
+            style={{ fontSize: "clamp(100px, 25vw, 380px)" }}>
             02
           </span>
         </motion.div>
@@ -215,7 +215,7 @@ export default function HowItWorksSection() {
           <span className="inline-flex w-fit font-body text-[10px] uppercase tracking-[0.4em] text-[#00A651] mb-5 px-3 py-1 border border-[#00A651]/25 rounded-full">
             Cero preocupaciones
           </span>
-          <h2 className="font-display text-5xl md:text-7xl font-semibold text-white leading-tight mb-5">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-semibold text-white leading-tight mb-5">
             Disfrute<br />
             <span className="italic text-[#00A651]">su Evento</span>
           </h2>
@@ -229,7 +229,7 @@ export default function HowItWorksSection() {
           style={{ opacity: n3Opacity }}
         >
           <span className="font-display font-bold text-white leading-none"
-            style={{ fontSize: "clamp(160px, 30vw, 380px)" }}>
+            style={{ fontSize: "clamp(100px, 25vw, 380px)" }}>
             03
           </span>
         </motion.div>
