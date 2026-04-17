@@ -220,22 +220,13 @@ export default function AboutSection() {
               ))}
             </div>
 
-            {/* Closing quote + CTA */}
+            {/* Closing quote */}
             <BlurFade delay={0.9}>
               <div className="mt-12 pt-10 border-t border-[#0E1A12]/10">
-                <p className="font-display text-xl md:text-2xl italic text-[#0E1A12]/45 leading-snug mb-8">
+                <p className="font-display text-xl md:text-2xl italic text-[#0E1A12]/45 leading-snug">
                   "Sus invitados merecen lo mejor —{" "}
                   <span className="text-[#D4A843]/80">hasta en los detalles que no esperan."</span>
                 </p>
-                <a
-                  href="#contacto"
-                  className="inline-flex items-center gap-3 bg-[#00A651] hover:bg-[#00b859] text-white font-body text-sm uppercase tracking-[0.2em] font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-[0_8px_30px_rgba(0,166,81,0.25)] hover:shadow-[0_8px_40px_rgba(0,166,81,0.4)] hover:-translate-y-0.5"
-                >
-                  Solicitar Cotización
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </a>
               </div>
             </BlurFade>
           </div>
