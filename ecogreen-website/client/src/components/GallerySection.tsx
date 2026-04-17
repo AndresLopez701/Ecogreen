@@ -185,13 +185,13 @@ export default function GallerySection() {
         </BlurFade>
 
         {/* ── Tabs ── */}
-        <BlurFade delay={0.2} className="flex justify-center mb-10">
-          <div className="inline-flex gap-2 bg-[#0E1A12]/[0.06] p-1.5 rounded-full">
+        <BlurFade delay={0.2} className="flex justify-center mb-10 px-4">
+          <div className="inline-flex gap-1.5 bg-[#0E1A12]/[0.06] p-1.5 rounded-full overflow-x-auto max-w-full">
             {tabs.map((tab, i) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(i)}
-                className={`relative font-body text-sm font-medium px-5 py-2 rounded-full transition-all duration-300 ${
+                className={`relative font-body text-xs sm:text-sm font-medium px-3.5 sm:px-5 py-2 rounded-full transition-all duration-300 whitespace-nowrap flex-shrink-0 ${
                   activeTab === i
                     ? "text-white"
                     : "text-[#0E1A12]/50 hover:text-[#0E1A12]/80"
