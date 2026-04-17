@@ -86,7 +86,7 @@ export default function HeroSection() {
           <div className="inline-flex items-center gap-3 mb-8">
             <span className="block w-8 h-px bg-gradient-to-r from-transparent to-[#D4A843]" />
             <span className="font-body text-xs uppercase tracking-[0.4em] text-[#D4A843] font-medium px-4 py-1.5 border border-[#D4A843]/30 rounded-full backdrop-blur-sm bg-white/5">
-              Cali, Colombia
+              Colombia
             </span>
             <span className="block w-8 h-px bg-gradient-to-l from-transparent to-[#D4A843]" />
           </div>
