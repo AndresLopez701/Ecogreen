@@ -89,17 +89,17 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="py-28 md:py-40 bg-[#0E1A12] relative overflow-hidden">
+    <section className="py-28 md:py-40 bg-[#F7F4EF] relative overflow-hidden">
       {/* Subtle grain */}
 
 
       <div className="container relative z-10">
         {/* Section header */}
         <BlurFade delay={0.1} className="text-center mb-20">
-          <span className="inline-block font-body text-xs uppercase tracking-[0.4em] text-[#D4A843] font-medium mb-4 px-4 py-1.5 border border-[#D4A843]/20 rounded-full">
+          <span className="inline-block font-body text-xs uppercase tracking-[0.4em] text-[#D4A843] font-medium mb-4 px-4 py-1.5 border border-[#D4A843]/40 rounded-full">
             Testimonios
           </span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-white mt-4">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-[#0E1A12] mt-4">
             Lo que Dicen
           </h2>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold mt-1">
@@ -111,12 +111,12 @@ export default function TestimonialsSection() {
 
         {/* Carousel */}
         <div className="max-w-3xl mx-auto text-center">
-          <div className="relative min-h-[280px] md:min-h-[240px] flex items-center justify-center">
+          <div className="relative min-h-[480px] md:min-h-[320px] flex items-center justify-center">
             {/* Large decorative quotes */}
-            <span className="absolute -top-4 left-0 md:left-8 font-display text-[120px] md:text-[160px] leading-none text-[#D4A843]/8 select-none pointer-events-none">
+            <span className="absolute -top-4 left-0 md:left-8 font-display text-[120px] md:text-[160px] leading-none text-[#D4A843]/20 select-none pointer-events-none">
               &ldquo;
             </span>
-            <span className="absolute -bottom-16 right-0 md:right-8 font-display text-[120px] md:text-[160px] leading-none text-[#D4A843]/8 select-none pointer-events-none rotate-180">
+            <span className="absolute -bottom-16 right-0 md:right-8 font-display text-[120px] md:text-[160px] leading-none text-[#D4A843]/20 select-none pointer-events-none rotate-180">
               &ldquo;
             </span>
 
@@ -147,7 +147,7 @@ export default function TestimonialsSection() {
                 </div>
 
                 {/* Quote text */}
-                <blockquote className="font-display text-xl md:text-2xl lg:text-3xl italic text-white/85 leading-relaxed relative z-10">
+                <blockquote className="font-display text-xl md:text-2xl lg:text-3xl italic text-[#0E1A12]/80 leading-relaxed relative z-10">
                   {testimonials[current].quote}
                 </blockquote>
 
@@ -161,13 +161,13 @@ export default function TestimonialsSection() {
                       {testimonials[current].initials}
                     </span>
                   </div>
-                  <p className="font-display text-base font-semibold text-white/80">
+                  <p className="font-display text-base font-semibold text-[#0E1A12]/80">
                     {testimonials[current].name}
                   </p>
-                  <p className="font-body text-xs text-[#D4A843]/70 font-medium">
+                  <p className="font-body text-xs text-[#D4A843] font-medium">
                     {testimonials[current].role}
                   </p>
-                  <p className="font-body text-xs uppercase tracking-[0.2em] text-white/30 mt-0.5">
+                  <p className="font-body text-xs uppercase tracking-[0.2em] text-[#0E1A12]/40 mt-0.5">
                     {testimonials[current].event}
                   </p>
                 </div>
@@ -184,7 +184,7 @@ export default function TestimonialsSection() {
                 className={`transition-all duration-500 rounded-full ${
                   i === current
                     ? "w-8 h-2.5 bg-[#D4A843]"
-                    : "w-2.5 h-2.5 bg-white/20 hover:bg-white/40"
+                    : "w-2.5 h-2.5 bg-[#0E1A12]/20 hover:bg-[#0E1A12]/40"
                 }`}
                 aria-label={`Ir al testimonio ${i + 1}`}
               />

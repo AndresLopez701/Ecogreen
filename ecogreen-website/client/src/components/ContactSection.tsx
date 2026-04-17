@@ -347,7 +347,7 @@ export default function ContactSection() {
                   as="button"
                   type="submit"
                   disabled={!isFormValid}
-                  className={`w-full font-body text-sm font-semibold py-4 rounded-xl uppercase tracking-[0.15em] transition-all duration-500 ${
+                  className={`w-full font-body text-sm font-semibold py-4 rounded-xl uppercase tracking-[0.05em] md:tracking-[0.15em] transition-all duration-500 ${
                     isFormValid
                       ? "bg-[#D4A843] hover:bg-[#E0C06A] text-white glow-terracotta"
                       : "bg-[#D4A843]/40 text-white/50 cursor-not-allowed"

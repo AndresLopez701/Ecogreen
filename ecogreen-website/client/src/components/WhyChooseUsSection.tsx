@@ -108,9 +108,13 @@ export default function WhyChooseUsSection() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
         >
-          <p className="text-center font-body text-sm uppercase tracking-[0.35em] text-white/70 mb-12">
-            Marcas y eventos que han confiado en nosotros
-          </p>
+          <div className="flex items-center justify-center gap-4 mb-12">
+            <span className="hidden md:block flex-shrink-0 w-12 h-px bg-gradient-to-r from-transparent to-[#D4A843]/50" />
+            <p className="text-center font-body text-[10px] md:text-sm uppercase tracking-normal md:tracking-[0.35em] text-[#D4A843] font-medium">
+              Marcas y eventos que han confiado en nosotros
+            </p>
+            <span className="hidden md:block flex-shrink-0 w-12 h-px bg-gradient-to-l from-transparent to-[#D4A843]/50" />
+          </div>
 
           {/* Marquee wrapper — fade edges */}
           <div className="relative overflow-hidden"
