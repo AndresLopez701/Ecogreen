@@ -6,7 +6,6 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Preloader from "./components/Preloader";
-import CustomCursor from "./components/CustomCursor";
 import { useSmoothScroll } from "./hooks/useSmoothScroll";
 
 function Router() {
@@ -27,8 +26,7 @@ function App() {
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Preloader />
-          <CustomCursor />
-          <Toaster />
+<Toaster />
           <Router />
         </TooltipProvider>
       </ThemeProvider>
