@@ -31,48 +31,44 @@ const tabs: Tab[] = [
     id: "bodas",
     label: "Bodas",
     items: [
-      { src: "/imgs/boda-elegante.jpg",      alt: "Boda elegante con unidades EcoGreen",   label: "Boda Exclusiva",    type: "image" },
-      { src: "/imgs/boda2.jpg",              alt: "Unidades en ceremonia de boda",          label: "Ceremonia",         type: "image" },
-      { src: "/imgs/video1.mp4",             alt: "Video boda en finca",                    label: "En Vivo",           type: "video", poster: "/imgs/boda2.jpg" },
-      { src: "/imgs/boda1.jpg",              alt: "Unidades instaladas para boda",          label: "Instalación",       type: "image" },
-      { src: "/imgs/premium-lago.jpg",       alt: "Evento en finca con vista al lago",      label: "Finca Premium",     type: "image" },
-      { src: "/imgs/video5.mp4",             alt: "Video celebración",                      label: "Celebración",       type: "video", poster: "/imgs/boda2.jpg" },
+      { src: "/imgs/gallery-bodas-1.jpg",  alt: "Boda elegante con unidades EcoGreen",  label: "Boda Exclusiva",  type: "image" },
+      { src: "/imgs/gallery-bodas-2.png",  alt: "Unidades en ceremonia de boda",         label: "Ceremonia",       type: "image" },
+      { src: "/imgs/gallery-bodas-3.png",  alt: "Decoración y unidades en boda",         label: "Decoración",      type: "image" },
+      { src: "/imgs/gallery-bodas-4.png",  alt: "Unidades instaladas para boda",         label: "Instalación",     type: "image" },
+      { src: "/imgs/gallery-bodas-5.png",  alt: "Vista del evento de boda",              label: "Evento",          type: "image" },
     ],
   },
   {
     id: "corporativos",
     label: "Corporativos",
     items: [
-      { src: "/imgs/exterior-carpa.jpg",     alt: "Unidades junto a carpa corporativa",    label: "Evento Corporativo", type: "image" },
-      { src: "/imgs/video2.mp4",             alt: "Video servicio corporativo",             label: "En Servicio",        type: "video", poster: "/imgs/exterior-carpa.jpg" },
-      { src: "/imgs/equipo-instalando.jpg",  alt: "Equipo EcoGreen instalando unidades",   label: "Nuestro Equipo",     type: "image" },
-      { src: "/imgs/finca.jpg",              alt: "Unidades en finca para evento",          label: "Evento en Finca",    type: "image" },
-      { src: "/imgs/unidad-exterior-2.jpg",  alt: "Flota completa de unidades",             label: "Flota Premium",      type: "image" },
-      { src: "/imgs/video3.mp4",             alt: "Video evento de lujo",                   label: "Evento de Lujo",     type: "video", poster: "/imgs/evento-social.jpg" },
+      { src: "/imgs/gallery-corp-1.png",   alt: "Evento corporativo con unidades EcoGreen", label: "Evento Corporativo", type: "image" },
+      { src: "/imgs/gallery-corp-2.png",   alt: "Servicio en evento empresarial",            label: "Empresarial",        type: "image" },
+      { src: "/imgs/gallery-corp-3.png",   alt: "Unidades en conferencia",                   label: "Conferencia",        type: "image" },
+      { src: "/imgs/gallery-corp-4.png",   alt: "Flota completa para evento corporativo",    label: "Flota Premium",      type: "image" },
+      { src: "/imgs/gallery-corp-5.png",   alt: "Ambiente de evento corporativo",            label: "Ambiente",           type: "image" },
     ],
   },
   {
     id: "fiestas",
     label: "Fiestas",
     items: [
-      { src: "/imgs/fiesta-privada-new.jpg", alt: "Fiesta privada con unidades EcoGreen",  label: "Fiesta Privada",     type: "image" },
-      { src: "/imgs/evento-social.jpg",      alt: "Evento social con decoración",           label: "Evento Social",      type: "image" },
-      { src: "/imgs/video3.mp4",             alt: "Video fiesta de lujo",                   label: "En Vivo",            type: "video", poster: "/imgs/evento-social.jpg" },
-      { src: "/imgs/exterior-palmera.jpg",   alt: "Unidades junto a palmeras",              label: "Ambiente Tropical",  type: "image" },
-      { src: "/imgs/boda-desc.jpg",          alt: "Celebración especial",                   label: "Celebración",        type: "image" },
-      { src: "/imgs/video5.mp4",             alt: "Video fiesta privada",                   label: "Fiesta",             type: "video", poster: "/imgs/boda2.jpg" },
+      { src: "/imgs/gallery-fiestas-1.png", alt: "Fiesta privada con unidades EcoGreen",  label: "Fiesta Privada",    type: "image" },
+      { src: "/imgs/gallery-fiestas-2.jpg", alt: "Celebración con servicio premium",       label: "Celebración",       type: "image" },
+      { src: "/imgs/gallery-fiestas-3.jpg", alt: "Ambiente festivo con unidades EcoGreen", label: "Ambiente Festivo",  type: "image" },
+      { src: "/imgs/gallery-fiestas-4.jpg", alt: "Fiesta con servicio impecable",           label: "Servicio",          type: "image" },
+      { src: "/imgs/fiesta-privada-new.jpg", alt: "Gran celebración con unidades EcoGreen", label: "Gran Fiesta",       type: "image" },
     ],
   },
   {
     id: "exteriores",
     label: "Exteriores",
     items: [
-      { src: "/imgs/premium-lago.jpg",       alt: "Unidades con vista al lago",             label: "Vista al Lago",      type: "image" },
-      { src: "/imgs/unidad-exterior-1.jpg",  alt: "Unidad exterior vista completa",         label: "Unidad Premium",     type: "image" },
-      { src: "/imgs/unidad-exterior-2.jpg",  alt: "Flota en sendero de finca",              label: "Flota Completa",     type: "image" },
-      { src: "/imgs/video2.mp4",             alt: "Video exterior servicio",                label: "Servicio Completo",  type: "video", poster: "/imgs/exterior-carpa.jpg" },
-      { src: "/imgs/equipo-instalando.jpg",  alt: "Equipo instalando unidades",             label: "Instalación",        type: "image" },
-      { src: "/imgs/finca.jpg",              alt: "Unidades en finca",                      label: "En Finca",           type: "image" },
+      { src: "/imgs/gallery-ext-1.jpg",    alt: "Vista exterior unidades EcoGreen",       label: "Unidad Premium",    type: "image" },
+      { src: "/imgs/gallery-ext-2.jpg",    alt: "Flota de unidades en exterior",           label: "Flota Completa",    type: "image" },
+      { src: "/imgs/gallery-ext-3.png",    alt: "Unidades instaladas en exterior",         label: "Instalación",       type: "image" },
+      { src: "/imgs/gallery-ext-4.png",    alt: "Unidades en evento exterior",             label: "Evento Exterior",   type: "image" },
+      { src: "/imgs/gallery-ext-5.png",    alt: "Vista general exterior",                  label: "Vista General",     type: "image" },
     ],
   },
 ];
@@ -218,7 +214,7 @@ export default function GallerySection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.4, ease: [0.25, 0.4, 0.25, 1] }}
-            className="grid grid-cols-2 md:grid-cols-3 grid-rows-[240px_240px_240px] md:grid-rows-[280px_280px] gap-3"
+            className="grid grid-cols-2 md:grid-cols-3 grid-rows-[240px_240px_240px] md:grid-rows-[280px_280px_280px] gap-3"
           >
             {currentItems.slice(0, 6).map((item, i) => (
               <GalleryCard
