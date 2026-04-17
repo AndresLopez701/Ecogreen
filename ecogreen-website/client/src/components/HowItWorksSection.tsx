@@ -163,9 +163,9 @@ export default function HowItWorksSection() {
           </p>
         </motion.div>
 
-        {/* Phone — right */}
+        {/* Phone — right (desktop only: too wide to coexist with text on mobile) */}
         <motion.div
-          className="absolute right-0 top-0 bottom-0 z-20 flex items-center justify-center pr-8 md:pr-16 pointer-events-none"
+          className="absolute right-0 top-0 bottom-0 z-20 hidden md:flex items-center justify-center pr-8 md:pr-16 pointer-events-none"
           style={{ opacity: p1Opacity, x: p1X, scale: p1Scale }}
         >
           <img
