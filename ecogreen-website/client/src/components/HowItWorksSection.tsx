@@ -171,7 +171,7 @@ export default function HowItWorksSection() {
           <img
             src="/imgs/paso1-cotizacion.png"
             alt="Cotización WhatsApp"
-            className="h-[62vh] md:h-[125vh] max-h-[1200px] w-auto object-contain drop-shadow-2xl"
+            className="h-[72vh] md:h-[125vh] max-h-[1200px] w-auto object-contain drop-shadow-2xl"
           />
         </motion.div>
 
