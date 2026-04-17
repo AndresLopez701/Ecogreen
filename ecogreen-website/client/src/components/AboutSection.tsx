@@ -143,15 +143,6 @@ export default function AboutSection() {
               </div>
               {/* Decorative frame */}
               <div className="absolute -bottom-5 -right-5 w-full h-full border-2 border-[#D4A843]/25 rounded-2xl -z-10" />
-              {/* Floating accent badge — luxury medallion seal */}
-              <motion.div
-                className="absolute top-3 left-3 lg:-top-5 lg:-left-5 w-20 h-20 rounded-full bg-[#00A651] text-white flex flex-col items-center justify-center shadow-[0_8px_32px_rgba(0,166,81,0.4)] ring-4 ring-white/20"
-                animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <span className="font-display text-2xl font-bold leading-none">7+</span>
-                <span className="font-body text-[10px] uppercase tracking-wider text-white/70 mt-0.5">Años</span>
-              </motion.div>
             </div>
           </BlurFade>
 
