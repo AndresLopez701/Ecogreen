@@ -146,9 +146,9 @@ export default function HowItWorksSection() {
           </span>
         </motion.div>
 
-        {/* Text — left */}
+        {/* Text — left (top on mobile, center on desktop) */}
         <motion.div
-          className="absolute inset-0 z-20 flex flex-col justify-center px-8 md:px-16 max-w-[520px] pointer-events-none"
+          className="absolute inset-0 z-20 flex flex-col justify-start pt-20 md:justify-center md:pt-0 px-8 md:px-16 max-w-[520px] pointer-events-none"
           style={{ opacity: t1Opacity, x: t1X }}
         >
           <span className="inline-flex w-fit font-body text-[10px] uppercase tracking-[0.4em] text-[#00A651] mb-5 px-3 py-1 border border-[#00A651]/25 rounded-full">
@@ -163,15 +163,15 @@ export default function HowItWorksSection() {
           </p>
         </motion.div>
 
-        {/* Phone — right (desktop only: too wide to coexist with text on mobile) */}
+        {/* Phone — bottom on mobile, right on desktop */}
         <motion.div
-          className="absolute right-0 top-0 bottom-0 z-20 hidden md:flex items-center justify-center pr-8 md:pr-16 pointer-events-none"
+          className="absolute bottom-0 left-0 right-0 md:left-auto md:right-0 md:top-0 z-10 flex items-end justify-center pb-0 md:pb-0 md:items-center md:justify-end md:pr-16 pointer-events-none"
           style={{ opacity: p1Opacity, x: p1X, scale: p1Scale }}
         >
           <img
             src="/imgs/paso1-cotizacion.png"
             alt="Cotización WhatsApp"
-            className="h-[125vh] max-h-[1200px] w-auto object-contain drop-shadow-2xl"
+            className="h-[44vh] md:h-[125vh] max-h-[1200px] w-auto object-contain drop-shadow-2xl"
           />
         </motion.div>
 
