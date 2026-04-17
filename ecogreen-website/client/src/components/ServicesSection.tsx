@@ -1,60 +1,24 @@
 /*
- * ServicesSection - Ultra Pro EcoGreen
- * Dark charcoal with animated gradient orbs, glassmorphism cards,
- * staggered entrances, cursor-following glow, grain texture
- * Design: Hacienda Digital — premium, warm, exclusive
+ * ServicesSection — Bento Editorial Grid
+ * Layout asimétrico premium: fotos reales + cards dark/light alternados
+ * Desktop: 12-col grid, 3 filas fijas
+ * Mobile: stack vertical con alturas naturales
  */
 
 import BlurFade from "@/components/animations/BlurFade";
-import ImageWithSkeleton from "@/components/ImageWithSkeleton";
-import GlassmorphismCard from "@/components/animations/GlassmorphismCard";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Crown, Users, Building2, PartyPopper, Sparkles, Truck, Trophy } from "lucide-react";
-
-const LUXURY_TRAILER = "/imgs/boda-elegante.jpg";
-
-const services = [
-  {
-    icon: Crown,
-    title: "Unidades VIP",
-    desc: "Tráileres sanitarios de lujo con acabados premium, aire acondicionado, espejo iluminado, lavamanos de mármol y amenidades de primera.",
-  },
-  {
-    icon: Users,
-    title: "Bodas y Celebraciones",
-    desc: "Soluciones elegantes que se integran perfectamente con la decoración de su boda o celebración especial.",
-  },
-  {
-    icon: Building2,
-    title: "Eventos Corporativos",
-    desc: "Unidades profesionales para conferencias, lanzamientos y eventos empresariales que reflejan su imagen.",
-  },
-  {
-    icon: PartyPopper,
-    title: "Fiestas Privadas",
-    desc: "Desde reuniones íntimas hasta grandes fiestas, ofrecemos la capacidad y el estilo que su evento necesita.",
-  },
-  {
-    icon: Trophy,
-    title: "Eventos Deportivos",
-    desc: "Torneos, maratones y competencias con soluciones sanitarias de alto flujo, rápidas de instalar y fáciles de mantener.",
-  },
-  {
-    icon: Sparkles,
-    title: "Limpieza Impecable",
-    desc: "Cada unidad es entregada en condiciones impecables con servicio de mantenimiento durante todo el evento.",
-  },
-  {
-    icon: Truck,
-    title: "Entrega y Logística",
-    desc: "Nos encargamos del transporte, instalación y retiro. Usted solo se preocupa por disfrutar su evento.",
-  },
-];
+import { Crown, Trophy, ArrowRight } from "lucide-react";
 
 export default function ServicesSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
+
+  const fade = (delay: number) => ({
+    initial: { opacity: 0, y: 28 },
+    animate: isInView ? { opacity: 1, y: 0 } : {},
+    transition: { duration: 0.7, delay, ease: [0.25, 0.4, 0.25, 1] as const },
+  });
 
   return (
     <section
@@ -62,14 +26,10 @@ export default function ServicesSection() {
       className="py-28 md:py-40 bg-[#F7F4EF] relative overflow-hidden"
       ref={ref}
     >
-      {/* Animated gradient background */}
-
-
-      {/* Grain texture */}
-
       <div className="container relative z-10">
-        {/* Section header */}
-        <BlurFade delay={0.1} className="text-center mb-20">
+
+        {/* ── Header ── */}
+        <BlurFade delay={0.1} className="text-center mb-14">
           <span className="inline-block font-body text-xs uppercase tracking-[0.4em] text-[#D4A843] font-medium mb-4 px-4 py-1.5 border border-[#D4A843]/40 rounded-full">
             Nuestros Servicios
           </span>
@@ -81,69 +41,166 @@ export default function ServicesSection() {
               Cada Evento
             </span>
           </h2>
-          <p className="font-body text-base text-[#0E1A12]/50 max-w-xl mx-auto mt-6 leading-relaxed">
-            Ofrecemos una gama completa de unidades sanitarias portátiles de lujo,
-            adaptadas a las necesidades específicas de cada tipo de evento.
-          </p>
         </BlurFade>
 
-        {/* Featured image + services grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-          {/* Featured image - spans 1 column on large */}
+        {/* ── Bento Grid ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 lg:grid-rows-[280px_280px_280px] gap-4">
+
+          {/* ① Bodas — foto grande, tall (rows 1–2) */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:row-span-2 relative overflow-hidden rounded-2xl group"
+            {...fade(0.2)}
+            className="min-h-[380px] md:min-h-0 lg:col-span-7 lg:row-span-2 relative overflow-hidden rounded-3xl group"
           >
-            <ImageWithSkeleton
-              src={LUXURY_TRAILER}
-              alt="Tráiler sanitario de lujo EcoGreen en evento"
-              className="w-full h-full min-h-[400px] object-cover transition-transform duration-[1.2s] group-hover:scale-105"
-              skeletonClassName="min-h-[400px] bg-gradient-to-r from-[#2a2a2a] via-[#333] to-[#2a2a2a]"
+            <img
+              src="/imgs/boda-elegante.jpg"
+              alt="Bodas y Celebraciones"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A1510]/80 via-[#0A1510]/20 to-transparent" />
-            <div className="absolute bottom-8 left-8 right-8">
-              <p className="font-display text-3xl font-semibold text-white">
-                Unidades de Lujo
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0E1A12]/90 via-[#0E1A12]/25 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10">
+              <span className="inline-block font-body text-[10px] uppercase tracking-[0.4em] text-[#D4A843] mb-4 px-3 py-1 border border-[#D4A843]/40 rounded-full">
+                Más solicitado
+              </span>
+              <h3 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-3">
+                Bodas &<br />
+                <span className="italic text-[#D4A843]">Celebraciones</span>
+              </h3>
+              <p className="font-body text-sm text-white/55 leading-relaxed max-w-sm">
+                Soluciones elegantes que se integran perfectamente con la decoración de su boda o celebración especial.
               </p>
-              <p className="font-body text-sm text-white/50 mt-2">
-                Diseñadas para los eventos más exclusivos
-              </p>
-              <div className="w-12 h-[2px] bg-gradient-to-r from-[#D4A843] to-transparent mt-4" />
+              <div className="w-10 h-px bg-gradient-to-r from-[#D4A843] to-transparent mt-6" />
             </div>
           </motion.div>
 
-          {/* Service cards with glassmorphism */}
-          {services.map((service, i) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{
-                duration: 0.5,
-                delay: 0.3 + i * 0.1,
-                type: "spring",
-                stiffness: 100,
-                damping: 15,
-              }}
-            >
-              <GlassmorphismCard
-                variant="light"
-                className="p-7 h-full bg-white border-[#0E1A12]/[0.07]"
-              >
-                <div className="w-12 h-12 rounded-xl bg-[#00A651]/15 flex items-center justify-center mb-5 transition-all duration-500 group-hover:bg-[#00A651]/25">
-                  <service.icon className="w-5 h-5 text-[#D4A843]" />
-                </div>
-                <h3 className="font-display text-xl font-semibold text-[#0E1A12] mb-2">
-                  {service.title}
+          {/* ② VIP — dark card con foto tenue */}
+          <motion.div
+            {...fade(0.3)}
+            className="min-h-[260px] lg:col-span-5 relative overflow-hidden rounded-3xl bg-[#0E1A12] group"
+          >
+            <img
+              src="/imgs/interior.jpg"
+              alt="Unidades VIP"
+              className="absolute inset-0 w-full h-full object-cover opacity-20 transition-transform duration-[1.4s] group-hover:scale-105 group-hover:opacity-30"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#0E1A12]/40 to-[#0E1A12]/95" />
+            <div className="relative h-full p-8 flex flex-col justify-between">
+              <div className="w-12 h-12 rounded-2xl bg-[#D4A843]/15 flex items-center justify-center">
+                <Crown className="w-5 h-5 text-[#D4A843]" />
+              </div>
+              <div>
+                <h3 className="font-display text-2xl md:text-3xl font-semibold text-white mb-2">
+                  Unidades <span className="italic text-[#D4A843]">VIP</span>
                 </h3>
-                <p className="font-body text-sm text-[#0E1A12]/55 leading-relaxed">
-                  {service.desc}
+                <p className="font-body text-sm text-white/50 leading-relaxed">
+                  AC, espejo iluminado, lavamanos de mármol y amenidades de primera clase.
                 </p>
-              </GlassmorphismCard>
-            </motion.div>
-          ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* ③ Corporativo — foto con overlay */}
+          <motion.div
+            {...fade(0.4)}
+            className="min-h-[260px] lg:col-span-5 relative overflow-hidden rounded-3xl group"
+          >
+            <img
+              src="/imgs/exterior-carpa.jpg"
+              alt="Eventos Corporativos"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0E1A12]/85 via-[#0E1A12]/30 to-[#0E1A12]/10" />
+            <div className="absolute bottom-0 left-0 right-0 p-8">
+              <h3 className="font-display text-2xl md:text-3xl font-semibold text-white mb-2">
+                Eventos <span className="italic text-[#00A651]">Corporativos</span>
+              </h3>
+              <p className="font-body text-sm text-white/55 leading-relaxed">
+                Profesionalismo y estilo para conferencias y eventos empresariales.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* ④ Deportivos — dark */}
+          <motion.div
+            {...fade(0.5)}
+            className="min-h-[260px] lg:col-span-4 relative overflow-hidden rounded-3xl bg-[#0E1A12] group"
+          >
+            <img
+              src="/imgs/evento-deportivo.jpg"
+              alt="Eventos Deportivos"
+              className="absolute inset-0 w-full h-full object-cover opacity-20 transition-all duration-[1.4s] group-hover:scale-105 group-hover:opacity-30"
+            />
+            <div className="absolute inset-0 bg-[#0E1A12]/50" />
+            <div className="relative h-full p-7 flex flex-col justify-between">
+              <Trophy className="w-6 h-6 text-[#00A651]" />
+              <div>
+                <h3 className="font-display text-xl md:text-2xl font-semibold text-white mb-1">
+                  Eventos Deportivos
+                </h3>
+                <p className="font-body text-xs text-white/45 leading-relaxed">
+                  Alto flujo, rápidos de instalar y fáciles de mantener en torneos y maratones.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* ⑤ Fiestas — foto */}
+          <motion.div
+            {...fade(0.55)}
+            className="min-h-[260px] lg:col-span-4 relative overflow-hidden rounded-3xl group"
+          >
+            <img
+              src="/imgs/evento-social.jpg"
+              alt="Fiestas Privadas"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0E1A12]/85 via-[#0E1A12]/20 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-7">
+              <h3 className="font-display text-xl md:text-2xl font-semibold text-white mb-1">
+                Fiestas Privadas
+              </h3>
+              <p className="font-body text-xs text-white/55">
+                Desde reuniones íntimas hasta grandes celebraciones con estilo.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* ⑥ CTA — verde */}
+          <motion.div
+            {...fade(0.6)}
+            className="min-h-[260px] lg:col-span-4 relative overflow-hidden rounded-3xl group"
+            style={{ background: "linear-gradient(135deg, #00A651 0%, #006B35 100%)" }}
+          >
+            {/* Dot pattern */}
+            <div
+              className="absolute inset-0 opacity-[0.08]"
+              style={{
+                backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
+                backgroundSize: "20px 20px",
+              }}
+            />
+            <div className="relative h-full p-7 flex flex-col justify-between">
+              <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center">
+                <ArrowRight className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h3 className="font-display text-xl md:text-2xl font-semibold text-white mb-2 leading-tight">
+                  ¿Listo para<br />
+                  <span className="italic">cotizar?</span>
+                </h3>
+                <p className="font-body text-xs text-white/65 leading-relaxed mb-5">
+                  Cuéntenos su evento y le enviamos una propuesta personalizada en minutos.
+                </p>
+                <a
+                  href="#contacto"
+                  className="inline-flex items-center gap-2 bg-white text-[#006B35] font-body text-xs font-semibold uppercase tracking-[0.15em] px-5 py-3 rounded-full hover:bg-white/90 transition-all duration-300"
+                >
+                  Cotizar ahora
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>
