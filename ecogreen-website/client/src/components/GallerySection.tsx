@@ -8,7 +8,7 @@
 import BlurFade from "@/components/animations/BlurFade";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
-import { X, ArrowLeft, ArrowRight, Play } from "lucide-react";
+import { X, ArrowLeft, ArrowRight } from "lucide-react";
 import { INSTAGRAM_URL } from "@shared/const";
 
 type GalleryItem = {
@@ -97,11 +97,11 @@ function GalleryCard({
       {item.type === "video" ? (
         <video
           src={item.src}
-          poster={item.poster}
-          muted loop playsInline
+          autoPlay
+          muted
+          loop
+          playsInline
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          onMouseEnter={(e) => (e.currentTarget as HTMLVideoElement).play()}
-          onMouseLeave={(e) => { const v = e.currentTarget as HTMLVideoElement; v.pause(); v.currentTime = 0; }}
         />
       ) : (
         <img
@@ -114,13 +114,6 @@ function GalleryCard({
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
-
-      {/* Play badge */}
-      {item.type === "video" && (
-        <div className="absolute top-3 right-3 bg-black/50 backdrop-blur-sm rounded-full p-1.5">
-          <Play className="w-3 h-3 text-white fill-white" />
-        </div>
-      )}
 
       {/* Label */}
       <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/65 to-transparent p-4 pt-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
