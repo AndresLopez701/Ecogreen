@@ -125,7 +125,7 @@ export default function ServicesSection() {
             className="min-h-[260px] lg:col-span-4 relative overflow-hidden rounded-3xl bg-[#0E1A12] group"
           >
             <img
-              src="/imgs/evento-deportivo.jpg"
+              src="/imgs/evento-deportivo-new.png"
               alt="Eventos Deportivos"
               className="absolute inset-0 w-full h-full object-cover opacity-20 transition-all duration-[1.4s] group-hover:scale-105 group-hover:opacity-30"
             />
@@ -149,7 +149,7 @@ export default function ServicesSection() {
             className="min-h-[260px] lg:col-span-4 relative overflow-hidden rounded-3xl group"
           >
             <img
-              src="/imgs/evento-social.jpg"
+              src="/imgs/fiesta-privada-new.jpg"
               alt="Fiestas Privadas"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] group-hover:scale-105"
             />
