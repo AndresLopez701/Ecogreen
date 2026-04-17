@@ -162,8 +162,7 @@ export default function AboutSection() {
                 En <strong className="text-[#00A651] font-semibold">EcoGreen Soluciones</strong>,
                 redefinimos el concepto de bienestar en eventos al aire libre.
                 Nuestras unidades no son baños portátiles — son espacios de lujo
-                con aire acondicionado, iluminación ambiental y acabados premium
-                que sus invitados simplemente no esperarán encontrar.
+                con aire acondicionado, iluminación ambiental y acabados premium.
               </p>
             </BlurFade>
 
