@@ -151,7 +151,7 @@ export default function AboutSection() {
             <BlurFade delay={0.3}>
               <p className="font-body text-lg text-[#0E1A12]/65 leading-[1.8] mb-6">
                 En <strong className="text-[#00A651] font-semibold">EcoGreen Soluciones</strong>,
-                redefinimos el concepto de bienestar en eventos al aire libre.
+                redefinimos el concepto de lujo en eventos al aire libre.
                 Nuestras unidades no son baños portátiles — son espacios de lujo
                 con aire acondicionado, iluminación ambiental y acabados premium.
               </p>
