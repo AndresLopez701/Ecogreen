@@ -22,13 +22,6 @@ const bgVideos = [
   "/imgs/bg-fiestas.mp4",
 ];
 
-// Fallback images if video fails to load
-const bgPosters = [
-  "/imgs/boda-elegante.jpg",
-  "/imgs/evento-social.jpg",
-  "/imgs/boda1.jpg",
-  "/imgs/finca.jpg",
-];
 
 const CYCLE_INTERVAL = 4000; // ms — synced with FlipWords
 
@@ -61,7 +54,6 @@ export default function HeroSection() {
         >
           <video
             src={src}
-            poster={bgPosters[i]}
             autoPlay
             muted
             loop
