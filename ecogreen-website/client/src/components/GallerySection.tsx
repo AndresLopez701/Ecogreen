@@ -17,6 +17,8 @@ type GalleryItem = {
   label: string;
   type: "image" | "video";
   poster?: string;
+  zoom?: number;    // e.g. 0.85 = zoom out
+  position?: string; // e.g. "bottom", "center 80%"
 };
 
 type Tab = {
@@ -32,10 +34,10 @@ const tabs: Tab[] = [
     label: "Bodas",
     items: [
       { src: "/imgs/gallery-bodas-1.jpg",    alt: "Boda elegante con unidades EcoGreen",  label: "Boda Exclusiva",  type: "image" },
-      { src: "/imgs/gallery-bodas-2.png",    alt: "Unidades en ceremonia de boda",         label: "Ceremonia",       type: "image" },
+      { src: "/imgs/gallery-bodas-2.jpg",    alt: "Unidades en ceremonia de boda",         label: "Ceremonia",       type: "image" },
       { src: "/imgs/gallery-bodas-3.png",    alt: "Decoración y unidades en boda",         label: "Decoración",      type: "image" },
       { src: "/imgs/gallery-bodas-4.png",    alt: "Unidades instaladas para boda",         label: "Instalación",     type: "image" },
-      { src: "/imgs/gallery-bodas-5.png",    alt: "Vista del evento de boda",              label: "Evento",          type: "image" },
+      { src: "/imgs/gallery-bodas-5.jpg",    alt: "Vista del evento de boda",              label: "Evento",          type: "image" },
       { src: "/imgs/gallery-bodas-video.mov", alt: "Video boda con EcoGreen",              label: "En Vivo",         type: "video", poster: "/imgs/gallery-bodas-1.jpg" },
     ],
   },
@@ -43,11 +45,11 @@ const tabs: Tab[] = [
     id: "corporativos",
     label: "Corporativos",
     items: [
-      { src: "/imgs/gallery-corp-1.png",     alt: "Evento corporativo con unidades EcoGreen", label: "Evento Corporativo", type: "image" },
-      { src: "/imgs/gallery-corp-2.png",     alt: "Servicio en evento empresarial",            label: "Empresarial",        type: "image" },
-      { src: "/imgs/gallery-corp-3.png",     alt: "Unidades en conferencia",                   label: "Conferencia",        type: "image" },
-      { src: "/imgs/gallery-corp-4.png",     alt: "Flota completa para evento corporativo",    label: "Flota Premium",      type: "image" },
-      { src: "/imgs/gallery-corp-5.png",     alt: "Ambiente de evento corporativo",            label: "Ambiente",           type: "image" },
+      { src: "/imgs/gallery-corp-1.jpg",     alt: "Evento corporativo con unidades EcoGreen", label: "Evento Corporativo", type: "image" },
+      { src: "/imgs/gallery-corp-2.mov",     alt: "Servicio en evento empresarial",            label: "Empresarial",        type: "video", poster: "/imgs/gallery-corp-1.jpg" },
+      { src: "/imgs/gallery-corp-3.jpg",     alt: "Unidades en conferencia",                   label: "Conferencia",        type: "image", position: "center 72%" },
+      { src: "/imgs/gallery-corp-4.png",     alt: "Flota completa para evento corporativo",    label: "Flota Premium",      type: "image", position: "center 70%" },
+      { src: "/imgs/gallery-corp-5.png",     alt: "Ambiente de evento corporativo",            label: "Ambiente",           type: "image", position: "center 70%" },
       { src: "/imgs/gallery-corp-video.mov", alt: "Video evento corporativo EcoGreen",         label: "En Servicio",        type: "video", poster: "/imgs/gallery-corp-1.png" },
     ],
   },
@@ -58,7 +60,7 @@ const tabs: Tab[] = [
       { src: "/imgs/gallery-fiestas-1.png",    alt: "Fiesta privada con unidades EcoGreen",   label: "Fiesta Privada",   type: "image" },
       { src: "/imgs/gallery-fiestas-2.jpg",    alt: "Celebración con servicio premium",        label: "Celebración",      type: "image" },
       { src: "/imgs/gallery-fiestas-3.jpg",    alt: "Ambiente festivo con unidades EcoGreen",  label: "Ambiente",         type: "image" },
-      { src: "/imgs/gallery-fiestas-4.jpg",    alt: "Fiesta con servicio impecable",            label: "Servicio",         type: "image" },
+      { src: "/imgs/gallery-fiestas-4.jpg",    alt: "Fiesta con servicio impecable",            label: "Servicio",         type: "image", position: "center 70%" },
       { src: "/imgs/gallery-fiestas-video1.mov", alt: "Video fiesta con EcoGreen",              label: "En Vivo",          type: "video", poster: "/imgs/gallery-fiestas-1.png" },
       { src: "/imgs/gallery-fiestas-video2.mov", alt: "Video celebración con EcoGreen",         label: "Celebración",      type: "video", poster: "/imgs/gallery-fiestas-2.jpg" },
     ],
@@ -70,9 +72,9 @@ const tabs: Tab[] = [
       { src: "/imgs/gallery-ext-1.jpg",    alt: "Vista exterior unidades EcoGreen",       label: "Unidad Premium",    type: "image" },
       { src: "/imgs/gallery-ext-2.jpg",    alt: "Flota de unidades en exterior",           label: "Flota Completa",    type: "image" },
       { src: "/imgs/gallery-ext-3.png",    alt: "Unidades instaladas en exterior",         label: "Instalación",       type: "image" },
-      { src: "/imgs/gallery-ext-4.png",    alt: "Unidades en evento exterior",             label: "Evento Exterior",   type: "image" },
+      { src: "/imgs/gallery-ext-4.jpg",    alt: "Unidades en evento exterior",             label: "Evento Exterior",   type: "image" },
       { src: "/imgs/gallery-ext-5.png",    alt: "Vista general exterior",                  label: "Vista General",     type: "image" },
-      { src: "/imgs/gallery-ext-video.mov", alt: "Video exterior EcoGreen",                label: "En Vivo",           type: "video", poster: "/imgs/gallery-ext-1.jpg" },
+      { src: "/imgs/gallery-ext-video.mp4", alt: "Video exterior EcoGreen",                label: "En Vivo",           type: "video", poster: "/imgs/gallery-ext-1.jpg" },
     ],
   },
 ];
@@ -90,8 +92,8 @@ function GalleryCard({
   return (
     <div
       className={`relative overflow-hidden rounded-2xl cursor-pointer group ${
-        large ? "md:col-span-2 md:row-span-2" : ""
-      }`}
+        item.zoom ? "bg-[#F7F3ED]" : "bg-[#EDE9E3]"
+      } ${large ? "md:col-span-2 md:row-span-2" : ""}`}
       onClick={onClick}
     >
       {item.type === "video" ? (
@@ -103,12 +105,25 @@ function GalleryCard({
           playsInline
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
+      ) : item.zoom ? (
+        <div
+          className="absolute inset-0 overflow-hidden"
+          style={{ padding: `${((1 - item.zoom) / 2) * 100}%` }}
+        >
+          <img
+            src={item.src}
+            alt={item.alt}
+            loading="lazy"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+        </div>
       ) : (
         <img
           src={item.src}
           alt={item.alt}
           loading="lazy"
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          style={item.position ? { objectPosition: item.position } : undefined}
         />
       )}
 

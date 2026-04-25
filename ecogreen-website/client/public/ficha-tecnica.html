@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ficha Técnica — EcoGreen Soluciones</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --dark:   #0A1510;
+    --dark2:  #0E1A12;
+    --green:  #00A651;
+    --gold:   #D4A843;
+    --gold2:  #E0C06A;
+    --cream:  #F7F4EF;
+    --white:  #FFFFFF;
+  }
+
+  body {
+    background: var(--dark);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ════════════ INTERACTIVE FEATURE EXPLORER ════════════ */
+
+  .fe {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--dark);
+    display: flex;
+    align-items: stretch;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid rgba(212,168,67,.12);
+  }
+
+  .fe-inner {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    gap: 0;
+  }
+
+  /* ── LEFT PANEL ── */
+  .fe-left {
+    width: 42%;
+    flex-shrink: 0;
+    padding: 60px 0 60px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    border-right: 1px solid rgba(255,255,255,.05);
+  }
+
+  /* Up / Down nav arrows — Apple style */
+  .fe-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-shrink: 0;
+    align-self: center;
+  }
+  .fe-nav-btn {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.18);
+    background: rgba(255,255,255,.05);
+    color: rgba(255,255,255,.7);
+    font-size: 14px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background .2s, border-color .2s;
+    flex-shrink: 0;
+  }
+  .fe-nav-btn:hover {
+    background: rgba(255,255,255,.12);
+    border-color: rgba(255,255,255,.35);
+    color: white;
+  }
+
+  /* Title block */
+  .fe-left-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+  }
+
+  .fe-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: .45em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .fe-eyebrow::before { content:''; display:block; width:20px; height:1px; background:var(--gold); }
+
+  .fe-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 46px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 28px;
+  }
+  .fe-title span {
+    font-style: italic;
+    background: linear-gradient(90deg, var(--gold), var(--gold2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Feature pills — Apple style */
+  .fe-features {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .fe-item {
+    cursor: pointer;
+    border-radius: 980px;
+    border: none;
+    background: rgba(255,255,255,.09);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    transition: background .25s;
+    text-align: left;
+    overflow: hidden;
+  }
+  .fe-item:hover { background: rgba(255,255,255,.14); }
+  .fe-item.fe-active { background: rgba(255,255,255,.16); border-radius: 20px; }
+
+  .fe-item-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px 12px 14px;
+  }
+
+  /* ⊕ circle button */
+  .fe-plus-btn {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,.45);
+    background: transparent;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: transform .35s cubic-bezier(.25,.4,.25,1), background .25s, border-color .25s;
+    position: relative;
+  }
+  .fe-plus-btn::before,
+  .fe-plus-btn::after {
+    content: '';
+    position: absolute;
+    background: rgba(255,255,255,.8);
+    border-radius: 2px;
+    transition: transform .35s;
+  }
+  .fe-plus-btn::before { width: 10px; height: 1.5px; }
+  .fe-plus-btn::after  { width: 1.5px; height: 10px; }
+
+  .fe-active .fe-plus-btn {
+    background: white;
+    border-color: white;
+    transform: rotate(45deg);
+  }
+  .fe-active .fe-plus-btn::before,
+  .fe-active .fe-plus-btn::after { background: #0a1510; }
+
+  .fe-item-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,.75);
+    letter-spacing: .01em;
+    transition: color .25s;
+    flex: 1;
+  }
+  .fe-active .fe-item-name { color: var(--white); font-weight: 600; }
+
+  /* Expandable description — Apple card style */
+  .fe-item-desc {
+    font-size: 12.5px;
+    color: rgba(255,255,255,.55);
+    line-height: 1.7;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .45s cubic-bezier(.4,0,.2,1), opacity .3s, padding .35s;
+    opacity: 0;
+    padding: 0 18px 0 52px;
+  }
+  .fe-active .fe-item-desc {
+    max-height: 100px;
+    opacity: 1;
+    padding: 0 18px 14px 52px;
+  }
+
+  /* Progress bar */
+  .fe-item-progress {
+    height: 1.5px;
+    background: rgba(212,168,67,.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 0 18px 12px 52px;
+    display: none;
+  }
+  .fe-active .fe-item-progress { display: block; }
+  .fe-item-progress-inner {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--gold2));
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  @keyframes fe-progress {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+
+  /* ── RIGHT PANEL ── */
+  .fe-right {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+  }
+
+  .fe-image-slot {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity .7s cubic-bezier(.4,0,.2,1);
+    pointer-events: none;
+  }
+  .fe-image-slot.fe-img-active {
+    opacity: 1;
+  }
+
+  .fe-image-slot img,
+  .fe-image-slot video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Desktop: medidas y requerimientos con contain para ver todo */
+  .fe-image-slot[data-slot="3"] img,
+  .fe-image-slot[data-slot="4"] img {
+    object-fit: contain;
+    background: var(--dark);
+  }
+
+  /* Gradient overlays on image */
+  .fe-image-slot::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to right, var(--dark) 0%, transparent 18%),
+      linear-gradient(to top, var(--dark) 0%, transparent 18%);
+    pointer-events: none;
+  }
+
+  /* Floating spec badge on image */
+  .fe-badge {
+    position: absolute;
+    bottom: 36px;
+    left: 36px;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity .5s .35s;
+    pointer-events: none;
+  }
+  .fe-img-active .fe-badge {
+    opacity: 1;
+  }
+  .fe-badge-inner {
+    background: rgba(10,21,16,.82);
+    border: 1px solid rgba(212,168,67,.25);
+    border-radius: 12px;
+    padding: 10px 16px;
+    backdrop-filter: blur(12px);
+  }
+  .fe-badge-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .fe-badge-lbl {
+    font-size: 9px;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.4);
+    margin-top: 3px;
+  }
+
+  /* ── AMENITY LABELS ── */
+  .fe-label {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 20;
+  }
+  .fe-img-active .fe-label {
+    animation: feLabelIn .45s cubic-bezier(.25,.4,.25,1) forwards;
+    animation-delay: var(--ldelay, 0s);
+  }
+  @keyframes feLabelIn {
+    from { opacity: 0; transform: translateX(-10px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  /* Right-side labels (pill appears to the left of the dot) */
+  .fe-label.fe-lr { flex-direction: row-reverse; }
+  .fe-img-active .fe-label.fe-lr { animation-name: feLabelInR; }
+  @keyframes feLabelInR {
+    from { opacity: 0; transform: translateX(10px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  .fe-label-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .fe-label-dot::after {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    border: 1.5px solid var(--gold);
+    opacity: 0;
+    animation: feDotPulse 2s ease-out infinite;
+    animation-delay: var(--ldelay, 0s);
+  }
+  @keyframes feDotPulse {
+    0%   { transform: scale(1);   opacity: .7; }
+    100% { transform: scale(2.4); opacity: 0; }
+  }
+
+  .fe-label-line {
+    width: 22px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), rgba(212,168,67,.25));
+    flex-shrink: 0;
+  }
+  .fe-label.fe-lr .fe-label-line {
+    background: linear-gradient(270deg, var(--gold), rgba(212,168,67,.25));
+  }
+
+  .fe-label-pill {
+    background: rgba(10,21,16,.88);
+    border: 1px solid rgba(212,168,67,.35);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 5px 12px 5px 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+  }
+  .fe-label.fe-lr .fe-label-pill { padding: 5px 8px 5px 12px; }
+  .fe-lbl-icon { font-size: 11px; line-height: 1; }
+  .fe-lbl-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: rgba(255,255,255,.9);
+    letter-spacing: .05em;
+    text-transform: uppercase;
+  }
+
+  /* ── TABLET (769px – 1100px) ── */
+  @media (min-width: 769px) and (max-width: 1100px) {
+    .fe-inner {
+      padding: 0 24px;
+    }
+    .fe-left {
+      width: 38%;
+      padding: 36px 0;
+      gap: 14px;
+    }
+    .fe-left-content {
+      gap: 0;
+    }
+    .fe-eyebrow {
+      font-size: 9px;
+      letter-spacing: .38em;
+      margin-bottom: 10px;
+    }
+    .fe-title {
+      font-size: clamp(22px, 3vw, 30px);
+      margin-bottom: 18px;
+    }
+    .fe-nav-btn {
+      width: 30px; height: 30px;
+    }
+    .fe-nav-btn svg {
+      width: 10px; height: 10px;
+    }
+    .fe-item-header {
+      padding: 10px 14px 10px 12px;
+      gap: 10px;
+    }
+    .fe-plus-btn {
+      width: 22px; height: 22px;
+    }
+    .fe-plus-btn::before { width: 8px; }
+    .fe-plus-btn::after  { height: 8px; }
+    .fe-item-name {
+      font-size: 12px;
+    }
+    .fe-item-desc {
+      font-size: 11.5px;
+      padding: 0 14px 0 44px;
+    }
+    .fe-active .fe-item-desc {
+      padding: 0 14px 12px 44px;
+    }
+    .fe-item-progress {
+      margin: 0 14px 10px 44px;
+    }
+    /* No cropping on tablet — show full image */
+    .fe-image-slot img {
+      object-fit: contain;
+      background: var(--dark);
+    }
+    /* Soften the left gradient so contained images look clean */
+    .fe-image-slot::after {
+      background:
+        linear-gradient(to right, var(--dark) 0%, transparent 10%),
+        linear-gradient(to top, var(--dark) 0%, transparent 14%);
+    }
+    /* Keep tablet-specific scale adjustments */
+    .fe-image-slot[data-slot="3"] img {
+      transform: scale(1.22);
+    }
+    .fe-image-slot[data-slot="4"] img {
+      transform: scale(1.62);
+    }
+  }
+
+  /* ── MOBILE BAR — hidden on desktop ── */
+  .fe-mobile-bar { display: none; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .fe { min-height: 100svh; }
+
+    .fe-inner {
+      flex-direction: column;
+      padding: 0;
+      gap: 0;
+      min-height: 100svh;
+    }
+
+    /* Hide desktop left panel entirely */
+    .fe-left { display: none; }
+
+    /* Image panel fills the flex space above the bar */
+    .fe-right {
+      order: 1;
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+    }
+
+    /* Zoom out on mobile — show full content */
+    .fe-image-slot img,
+    .fe-image-slot video {
+      object-fit: contain !important;
+      object-position: center !important;
+      background: var(--dark) !important;
+    }
+
+    /* Slight zoom on Medidas */
+    .fe-image-slot[data-slot="3"] img {
+      transform: scale(1.22);
+    }
+    /* A bit more zoom on Requerimientos */
+    .fe-image-slot[data-slot="4"] img {
+      transform: scale(1.62);
+    }
+
+    /* Mobile info + pills bar */
+    .fe-mobile-bar {
+      display: flex;
+      flex-direction: column;
+      order: 2;
+      width: 100%;
+      flex-shrink: 0;
+      background: var(--dark);
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding: 20px 20px 36px;
+      gap: 12px;
+    }
+
+    /* Header inside mobile bar */
+    .fe-mobile-header {
+      padding-bottom: 4px;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      margin-bottom: 2px;
+    }
+    .fe-mobile-bar .fe-eyebrow {
+      font-size: 9px;
+      margin-bottom: 6px;
+    }
+    .fe-mobile-bar .fe-title {
+      font-size: 22px;
+      margin-bottom: 0;
+      line-height: 1.15;
+    }
+
+    /* Divider between header and active item */
+    .fe-mobile-divider {
+      height: 1px;
+      background: rgba(255,255,255,.05);
+      flex-shrink: 0;
+    }
+
+    /* Active item info */
+    .fe-mobile-info {
+      min-height: 58px;
+    }
+    .fe-mobile-info-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 5px;
+      line-height: 1.15;
+    }
+    .fe-mobile-info-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 12.5px;
+      color: rgba(255,255,255,.55);
+      line-height: 1.55;
+    }
+
+    /* Horizontal scrollable pill row */
+    .fe-mobile-pills {
+      display: flex;
+      flex-direction: row;
+      gap: 7px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .fe-mobile-pills::-webkit-scrollbar { display: none; }
+
+    .fe-mobile-pill {
+      cursor: pointer;
+      flex-shrink: 0;
+      padding: 8px 16px;
+      border-radius: 980px;
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.1);
+      font-family: 'Inter', sans-serif;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: rgba(255,255,255,.65);
+      white-space: nowrap;
+      transition: background .2s, color .2s, border-color .2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .fe-mobile-pill.fe-mob-active {
+      background: rgba(255,255,255,.18);
+      border-color: rgba(255,255,255,.3);
+      color: var(--white);
+      font-weight: 600;
+    }
+  }
+
+  /* ── Amenidades dual-video crossfade ── */
+  .fe-amen-seq {
+    position: absolute;
+    inset: 0;
+    background: var(--dark);
+  }
+  .fe-amen-seq video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: var(--dark);
+    transition: opacity 0.9s ease;
+  }
+  .fe-amen-seq video:nth-child(1) { opacity: 1; z-index: 1; }
+  .fe-amen-seq video:nth-child(2) { opacity: 0; z-index: 2; }
+
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+════════════════════════════════════════ -->
+<section class="fe">
+  <div class="fe-inner">
+
+    <!-- ── LEFT PANEL ── -->
+    <div class="fe-left">
+
+      <!-- Up / Down arrows -->
+      <div class="fe-nav">
+        <button class="fe-nav-btn" onclick="feSelectPrev()" aria-label="Anterior">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><polyline points="2,8 6,4 10,8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="fe-nav-btn" onclick="feSelectNext()" aria-label="Siguiente">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><polyline points="2,4 6,8 10,4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+      <!-- Content -->
+      <div class="fe-left-content">
+        <div class="fe-eyebrow">Explorador Interactivo</div>
+        <h2 class="fe-title">Conoce tu<br/><span>Unidad</span></h2>
+
+        <div class="fe-features" id="feFeatures">
+
+          <div class="fe-item fe-active" data-index="0" onclick="feSelect(0)">
+            <div class="fe-item-header">
+              <div class="fe-plus-btn"></div>
+              <div class="fe-item-name">Vista Exterior</div>
+            </div>
+            <div class="fe-item-desc">Diseño exclusivo de doble cabina con escaleras de acceso. Estructura robusta con acabados premium que se integra en cualquier tipo de evento.</div>
+            <div class="fe-item-progress"><div class="fe-item-progress-inner"></div></div>
+          </div>
+
+          <div class="fe-item" data-index="1" onclick="feSelect(1)">
+            <div class="fe-item-header">
+              <div class="fe-plus-btn"></div>
+              <div class="fe-item-name">Interior Premium</div>
+            </div>
+            <div class="fe-item-desc">Inodoro de porcelana, lavamanos automático y espejo iluminado. Cada cabina diseñada para ofrecer la mejor experiencia a sus invitados.</div>
+            <div class="fe-item-progress"><div class="fe-item-progress-inner"></div></div>
+          </div>
+
+          <div class="fe-item" data-index="2" onclick="feSelect(2)">
+            <div class="fe-item-header">
+              <div class="fe-plus-btn"></div>
+              <div class="fe-item-name">Amenidades de Lujo</div>
+            </div>
+            <div class="fe-item-desc">Aire acondicionado, iluminación LED, jabón premium y ambientador automático. Confort absoluto.</div>
+            <div class="fe-item-progress"><div class="fe-item-progress-inner"></div></div>
+          </div>
+
+          <div class="fe-item" data-index="3" onclick="feSelect(3)">
+            <div class="fe-item-header">
+              <div class="fe-plus-btn"></div>
+              <div class="fe-item-name">Medidas</div>
+            </div>
+            <div class="fe-item-desc">Largo 3.65 m · Ancho 2.10 m · Alto 3.30 m. Dimensiones optimizadas para instalación en jardines, fincas, salones y espacios al aire libre.</div>
+            <div class="fe-item-progress"><div class="fe-item-progress-inner"></div></div>
+          </div>
+
+          <div class="fe-item" data-index="4" onclick="feSelect(4)">
+            <div class="fe-item-header">
+              <div class="fe-plus-btn"></div>
+              <div class="fe-item-name">Requerimientos</div>
+            </div>
+            <div class="fe-item-desc">Lo único que requerimos es acceso a un punto de agua para realizar el llenado inicial de nuestro tanque incorporado, y una conexión eléctrica de 110V. Del resto nos encargamos nosotros, sin complicaciones adicionales para usted.</div>
+            <div class="fe-item-progress"><div class="fe-item-progress-inner"></div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ── RIGHT PANEL: Crossfading images ── -->
+    <div class="fe-right" id="feRight">
+
+      <!-- 0: Vista Exterior -->
+      <div class="fe-image-slot fe-img-active" data-slot="0">
+        <img src="/imgs/fe-exterior.png" alt="Vista exterior unidad EcoGreen" />
+      </div>
+
+      <!-- 1: Interior Premium — video -->
+      <div class="fe-image-slot" data-slot="1">
+        <video src="/imgs/fe-interior-premium.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:contain;background:#0a1510;"></video>
+      </div>
+
+      <!-- 2: Amenidades — dual video crossfade -->
+      <div class="fe-image-slot" data-slot="2">
+        <div class="fe-amen-seq">
+          <video id="feAmen1" src="/imgs/amenidades1.mp4" muted playsinline preload="auto"></video>
+          <video id="feAmen2" src="/imgs/amenidades2.mp4" muted playsinline preload="auto"></video>
+        </div>
+      </div>
+
+      <!-- 3: Medidas -->
+      <div class="fe-image-slot" data-slot="3">
+        <img src="/imgs/fe-medidas.png" alt="Medidas unidad EcoGreen" />
+      </div>
+
+      <!-- 4: Requerimientos -->
+      <div class="fe-image-slot" data-slot="4">
+        <img src="/imgs/fe-requerimientos.png" alt="Requerimientos de instalación" />
+      </div>
+
+
+    </div>
+
+    <!-- ── MOBILE BOTTOM BAR (hidden on desktop) ── -->
+    <div class="fe-mobile-bar" id="feMobileBar">
+
+      <!-- Header: eyebrow + title -->
+      <div class="fe-mobile-header">
+        <div class="fe-eyebrow">Explorador Interactivo</div>
+        <h2 class="fe-title">Conoce tu<br/><span>Unidad</span></h2>
+      </div>
+
+      <div class="fe-mobile-info">
+        <div class="fe-mobile-info-name" id="feMobileName">Vista Exterior</div>
+        <div class="fe-mobile-info-desc" id="feMobileDesc">Diseño exclusivo de doble cabina con escaleras de acceso. Estructura robusta con acabados premium.</div>
+      </div>
+      <div class="fe-mobile-pills" id="feMobilePills">
+        <button class="fe-mobile-pill fe-mob-active" onclick="feSelect(0)">Vista Exterior</button>
+        <button class="fe-mobile-pill" onclick="feSelect(1)">Interior Premium</button>
+        <button class="fe-mobile-pill" onclick="feSelect(2)">Amenidades</button>
+        <button class="fe-mobile-pill" onclick="feSelect(3)">Medidas</button>
+        <button class="fe-mobile-pill" onclick="feSelect(4)">Requerimientos</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  let feCurrentIndex = 0;
+  const feTotalItems = 5;
+
+  const feNames = [
+    'Vista Exterior',
+    'Interior Premium',
+    'Amenidades de Lujo',
+    'Medidas',
+    'Requerimientos',
+  ];
+  const feDescs = [
+    'Diseño exclusivo de doble cabina con escaleras de acceso. Estructura robusta con acabados premium.',
+    'Inodoro de porcelana, lavamanos automático y espejo iluminado. Experiencia premium para sus invitados.',
+    'Aire acondicionado, iluminación LED, jabón premium y ambientador automático. Confort absoluto.',
+    'Largo 3.65 m · Ancho 2.10 m · Alto 3.30 m. Dimensiones optimizadas para cualquier espacio.',
+    'Lo único que requerimos es acceso a un punto de agua para realizar el llenado inicial de nuestro tanque incorporado, y una conexión eléctrica de 110V. Del resto nos encargamos nosotros, sin complicaciones adicionales para usted.'
+  ];
+
+  function feSelectPrev() { feSelect((feCurrentIndex - 1 + feTotalItems) % feTotalItems); }
+  function feSelectNext() { feSelect((feCurrentIndex + 1) % feTotalItems); }
+
+  function feSelect(index) {
+    const items = document.querySelectorAll('.fe-item');
+    const slots = document.querySelectorAll('.fe-image-slot');
+    const mobilePills = document.querySelectorAll('.fe-mobile-pill');
+
+    // Deactivate previous
+    items[feCurrentIndex].classList.remove('fe-active');
+    slots[feCurrentIndex].classList.remove('fe-img-active');
+    if (mobilePills[feCurrentIndex]) mobilePills[feCurrentIndex].classList.remove('fe-mob-active');
+
+    // Reset progress bar on prev item
+    const prevProgress = items[feCurrentIndex].querySelector('.fe-item-progress-inner');
+    if (prevProgress) {
+      prevProgress.style.animation = 'none';
+      void prevProgress.offsetWidth;
+    }
+
+    feCurrentIndex = index;
+
+    // Reset label animations BEFORE re-adding active class (so they replay)
+    slots[index].querySelectorAll('.fe-label').forEach(lbl => {
+      lbl.style.animation = 'none';
+      const dot = lbl.querySelector('.fe-label-dot');
+      if (dot) dot.style.animation = 'none';
+      void lbl.offsetWidth; // force reflow
+      lbl.style.animation = '';
+      if (dot) dot.style.animation = '';
+    });
+
+    // Activate new slot
+    items[index].classList.add('fe-active');
+    slots[index].classList.add('fe-img-active');
+
+    // Restart progress bar
+    const newProgress = items[index].querySelector('.fe-item-progress-inner');
+    if (newProgress) {
+      newProgress.style.animation = 'none';
+      void newProgress.offsetWidth;
+      newProgress.style.animation = 'fe-progress 0.35s ease-out forwards';
+    }
+
+    // ── Sync mobile bar ──
+    if (mobilePills[index]) {
+      mobilePills[index].classList.add('fe-mob-active');
+      mobilePills[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+    const nameEl = document.getElementById('feMobileName');
+    const descEl = document.getElementById('feMobileDesc');
+    if (nameEl) nameEl.textContent = feNames[index];
+    if (descEl) descEl.textContent = feDescs[index];
+
+    // ── Amenidades video sequence: restart on activation ──
+    if (index === 2) feAmenStart();
+  }
+
+  // ── Amenidades dual-video crossfade logic ──
+  const feAmen1 = document.getElementById('feAmen1');
+  const feAmen2 = document.getElementById('feAmen2');
+
+  function feAmenStart() {
+    // Reset both to initial state
+    feAmen2.style.opacity = '0';
+    feAmen1.style.opacity = '1';
+    feAmen1.currentTime = 0;
+    feAmen2.currentTime = 0;
+    feAmen1.play();
+  }
+
+  feAmen1.addEventListener('ended', () => {
+    feAmen2.play();
+    feAmen2.style.opacity = '1';
+    setTimeout(() => { feAmen1.style.opacity = '0'; }, 50);
+  });
+
+  feAmen2.addEventListener('ended', () => {
+    feAmen1.currentTime = 0;
+    feAmen1.play();
+    feAmen1.style.opacity = '1';
+    setTimeout(() => { feAmen2.style.opacity = '0'; feAmen2.currentTime = 0; }, 50);
+  });
+
+  // Auto-start if amenidades is the initial active slot
+  if (feCurrentIndex === 2) feAmenStart();
+</script>
+
+</body>
+</html>
