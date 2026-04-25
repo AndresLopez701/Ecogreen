@@ -58,7 +58,7 @@ export default function HeroSection() {
             muted
             loop
             playsInline
-            preload={i === 0 ? "auto" : "metadata"}
+            preload={i === 0 ? "auto" : "none"}
             className="w-full h-full object-cover"
             style={{ minHeight: "110%" }}
           />
