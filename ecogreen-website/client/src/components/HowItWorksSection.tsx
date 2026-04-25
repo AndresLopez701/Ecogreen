@@ -100,7 +100,7 @@ export default function HowItWorksSection() {
         ══════════════════════════════════ */}
         <motion.div className="absolute inset-0 overflow-hidden" style={{ opacity: bg2Opacity }}>
           <motion.img
-            src="/imgs/paso2-instalacion.jpg"
+            src="/imgs/paso2-instalacion.webp"
             alt=""
             className="absolute inset-0 w-full h-[115%] object-cover"
             style={{ y: bg2Y }}
@@ -114,7 +114,7 @@ export default function HowItWorksSection() {
         ══════════════════════════════════ */}
         <motion.div className="absolute inset-0 overflow-hidden" style={{ opacity: bg3Opacity }}>
           <motion.img
-            src="/imgs/paso3-disfrute.jpg"
+            src="/imgs/paso3-disfrute.webp"
             alt=""
             className="absolute inset-0 w-full h-[115%] object-cover"
             style={{ y: bg3Y }}
@@ -169,7 +169,7 @@ export default function HowItWorksSection() {
           style={{ opacity: p1Opacity, x: p1X, scale: p1Scale }}
         >
           <img
-            src="/imgs/paso1-cotizacion.png"
+            src="/imgs/paso1-cotizacion.webp"
             alt="Cotización WhatsApp"
             className="h-[65vh] md:h-[125vh] max-h-[1200px] w-auto object-contain drop-shadow-2xl"
           />

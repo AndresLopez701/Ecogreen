@@ -31,7 +31,7 @@ export default function Preloader() {
         >
           {/* Real EcoGreen logo */}
           <motion.img
-            src="/imgs/logo-transparente.png"
+            src="/imgs/logo-transparente.webp"
             alt="EcoGreen logo"
             animate={{ scale: [1, 1.06, 1] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}

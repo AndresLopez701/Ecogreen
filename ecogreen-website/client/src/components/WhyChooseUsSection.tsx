@@ -14,16 +14,16 @@ const stats = [
 ];
 
 const logos = [
-  { src: "/imgs/logos/360-group-v2.png",        alt: "360 Group Agency", scale: 1.4 },
-  { src: "/imgs/logos/64a-films-v2.png",        alt: "64A Films", scale: 3.1 },
-  { src: "/imgs/logos/club-campestre-v2.png",   alt: "Club Campestre Cali", scale: 1.6 },
-  { src: "/imgs/logos/eventos-boutique-v2.png", alt: "Eventos Boutique", scale: 2.2 },
-  { src: "/imgs/logos/jbalvin-v2.png",          alt: "J Balvin", scale: 1.2 },
-  { src: "/imgs/logos/coomeva-v2.png",          alt: "Coomeva", scale: 1.6 },
-  { src: "/imgs/logos/hacienda-v2.png",         alt: "Hacienda Canasgordas", scale: 1.3 },
-  { src: "/imgs/logos/manuelita-v2.png",        alt: "Manuelita", scale: 2.6 },
-  { src: "/imgs/logos/mayaguez-v2.png",         alt: "Mayagüez", scale: 2.5 },
-  { src: "/imgs/logos/ddyanke-v2.png",          alt: "DD Yanke", scale: 1.6 },
+  { src: "/imgs/logos/360-group-v2.webp",        alt: "360 Group Agency", scale: 1.4 },
+  { src: "/imgs/logos/64a-films-v2.webp",        alt: "64A Films", scale: 3.1 },
+  { src: "/imgs/logos/club-campestre-v2.webp",   alt: "Club Campestre Cali", scale: 1.6 },
+  { src: "/imgs/logos/eventos-boutique-v2.webp", alt: "Eventos Boutique", scale: 2.2 },
+  { src: "/imgs/logos/jbalvin-v2.webp",          alt: "J Balvin", scale: 1.2 },
+  { src: "/imgs/logos/coomeva-v2.webp",          alt: "Coomeva", scale: 1.6 },
+  { src: "/imgs/logos/hacienda-v2.webp",         alt: "Hacienda Canasgordas", scale: 1.3 },
+  { src: "/imgs/logos/manuelita-v2.webp",        alt: "Manuelita", scale: 2.6 },
+  { src: "/imgs/logos/mayaguez-v2.webp",         alt: "Mayagüez", scale: 2.5 },
+  { src: "/imgs/logos/ddyanke-v2.webp",          alt: "DD Yanke", scale: 1.6 },
 ];
 
 function AnimatedCounter({ target, suffix }: { target: number; suffix: string }) {

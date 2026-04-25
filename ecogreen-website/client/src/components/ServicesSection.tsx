@@ -52,7 +52,7 @@ export default function ServicesSection() {
             className="min-h-[380px] md:min-h-0 lg:col-span-7 lg:row-span-2 relative overflow-hidden rounded-3xl group"
           >
             <img
-              src="/imgs/boda-elegante.jpg"
+              src="/imgs/boda-elegante.webp"
               alt="Bodas y Celebraciones"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] group-hover:scale-105"
             />
@@ -78,7 +78,7 @@ export default function ServicesSection() {
             className="min-h-[260px] lg:col-span-5 relative overflow-hidden rounded-3xl bg-[#0E1A12] group"
           >
             <img
-              src="/imgs/interior.jpg"
+              src="/imgs/interior.webp"
               alt="Unidades VIP"
               className="absolute inset-0 w-full h-full object-cover opacity-20 transition-transform duration-[1.4s] group-hover:scale-105 group-hover:opacity-30"
             />
@@ -104,7 +104,7 @@ export default function ServicesSection() {
             className="min-h-[260px] lg:col-span-5 relative overflow-hidden rounded-3xl group"
           >
             <img
-              src="/imgs/exterior-carpa.jpg"
+              src="/imgs/exterior-carpa.webp"
               alt="Eventos Corporativos"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] group-hover:scale-105"
             />
@@ -125,7 +125,7 @@ export default function ServicesSection() {
             className="min-h-[260px] lg:col-span-4 relative overflow-hidden rounded-3xl bg-[#0E1A12] group"
           >
             <img
-              src="/imgs/evento-deportivo-new.png"
+              src="/imgs/evento-deportivo-new.webp"
               alt="Eventos Deportivos"
               className="absolute inset-0 w-full h-full object-cover opacity-20 transition-all duration-[1.4s] group-hover:scale-105 group-hover:opacity-30"
             />
@@ -149,7 +149,7 @@ export default function ServicesSection() {
             className="min-h-[260px] lg:col-span-4 relative overflow-hidden rounded-3xl group"
           >
             <img
-              src="/imgs/fiesta-privada-new.jpg"
+              src="/imgs/fiesta-privada-new.webp"
               alt="Fiestas Privadas"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] group-hover:scale-105"
             />

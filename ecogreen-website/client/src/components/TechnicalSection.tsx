@@ -11,8 +11,8 @@ import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { useRef } from "react";
 import { Lightbulb, Wind, Droplets, Thermometer, Zap, Ruler } from "lucide-react";
 
-const EXTERIOR_IMG = "/imgs/unidad-exterior-1.jpg";
-const INTERIOR_IMG = "/imgs/interior2.jpg";
+const EXTERIOR_IMG = "/imgs/unidad-exterior-1.webp";
+const INTERIOR_IMG = "/imgs/interior2.webp";
 
 const annotations = [
   {

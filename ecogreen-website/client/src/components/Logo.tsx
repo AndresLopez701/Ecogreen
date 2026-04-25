@@ -84,7 +84,7 @@ export default function Logo({
     return (
       <div className={`inline-flex items-center ${className}`}>
         <img
-          src="/imgs/logo-transparente.png"
+          src="/imgs/logo-transparente.webp"
           alt="EcoGreen Unidades Sanitarias Portátiles"
           style={{
             height: logoHeights[size],

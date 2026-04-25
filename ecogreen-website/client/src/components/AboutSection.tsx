@@ -12,12 +12,12 @@ import { useRef, useState, useEffect } from "react";
 import { Leaf, Award, Heart } from "lucide-react";
 
 const slides = [
-  { src: "/imgs/interior.jpg",        label: "Interior Premium" },
-  { src: "/imgs/interior2.jpg",       label: "Acabados de Lujo" },
-  { src: "/imgs/interior3.jpg",       label: "Iluminación Ambiental" },
-  { src: "/imgs/unidad-abierta.jpg",  label: "Vista Exterior" },
-  { src: "/imgs/unidad-exterior-1.jpg", label: "Diseño Elegante" },
-  { src: "/imgs/boda1.jpg",           label: "En Eventos Reales" },
+  { src: "/imgs/interior.webp",        label: "Interior Premium" },
+  { src: "/imgs/interior2.webp",       label: "Acabados de Lujo" },
+  { src: "/imgs/interior3.webp",       label: "Iluminación Ambiental" },
+  { src: "/imgs/unidad-abierta.webp",  label: "Vista Exterior" },
+  { src: "/imgs/unidad-exterior-1.webp", label: "Diseño Elegante" },
+  { src: "/imgs/boda1.webp",           label: "En Eventos Reales" },
 ];
 
 const values = [
