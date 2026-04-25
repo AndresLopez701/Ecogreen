@@ -159,7 +159,7 @@ export default function AboutSection() {
 
             <BlurFade delay={0.4}>
               <p className="font-body text-lg text-[#0E1A12]/65 leading-[1.8] mb-12">
-                Con sede en <strong className="text-[#00A651] font-semibold">Cali, Colombia</strong>
+                Con sedes en <strong className="text-[#00A651] font-semibold">Cali y Bogotá, Colombia</strong>,
                 {" "}y más de <strong className="text-[#0E1A12] font-semibold">7 años de experiencia</strong>,
                 hemos estado presentes en más de{" "}
                 <strong className="text-[#0E1A12] font-semibold">400 eventos</strong> — desde
