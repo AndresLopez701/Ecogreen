@@ -91,8 +91,7 @@ export default function Logo({
             width: "auto",
             transform: "scale(1.3)",
             transformOrigin: "left center",
-            // On hero (dark bg): invert the gray "eco" text to white
-            filter: theme === "light" ? "brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(90deg)" : "none",
+            filter: "none",
           }}
         />
       </div>

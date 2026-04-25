@@ -42,7 +42,7 @@ export default function Footer() {
               }}
               className="inline-block"
             >
-              <Logo variant="full" size="md" theme="light" />
+              <Logo variant="full" size="md" theme="dark" />
             </a>
             <p className="font-body text-sm text-white/30 mt-5 leading-[1.8] max-w-xs">
               Unidades sanitarias de lujo para todos los eventos.

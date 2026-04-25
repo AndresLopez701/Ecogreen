@@ -73,7 +73,7 @@ export default function Navbar() {
               <Logo
                 variant="full"
                 size="md"
-                theme={scrolled ? "dark" : "light"}
+                theme="dark"
               />
             </motion.div>
           </a>
