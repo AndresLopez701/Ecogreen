@@ -61,7 +61,7 @@ const tabs: Tab[] = [
       { src: "/imgs/gallery-fiestas-2.jpg",    alt: "Celebración con servicio premium",        label: "Celebración",      type: "image" },
       { src: "/imgs/gallery-fiestas-3.jpg",    alt: "Ambiente festivo con unidades EcoGreen",  label: "Ambiente",         type: "image" },
       { src: "/imgs/gallery-fiestas-4.jpg",    alt: "Fiesta con servicio impecable",            label: "Servicio",         type: "image", position: "center 70%" },
-      { src: "/imgs/gallery-fiestas-video1.mov", alt: "Video fiesta con EcoGreen",              label: "En Vivo",          type: "video", poster: "/imgs/gallery-fiestas-1.png" },
+      { src: "/imgs/gallery-fiestas-video1.mp4", alt: "Video fiesta con EcoGreen",              label: "En Vivo",          type: "video", poster: "/imgs/gallery-fiestas-1.png" },
       { src: "/imgs/gallery-fiestas-video2.mov", alt: "Video celebración con EcoGreen",         label: "Celebración",      type: "video", poster: "/imgs/gallery-fiestas-2.jpg" },
     ],
   },
