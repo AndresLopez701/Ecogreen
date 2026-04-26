@@ -1,14 +1,13 @@
 /*
- * Preloader — Smart asset pre-caching window
+ * Preloader — Carga real, no timer fijo
  *
- * Strategy:
- *   1. Show logo splash immediately (pure CSS, no delay)
- *   2. During splash: fetch ALL mobile images into browser cache via Image()
- *   3. Dismiss when: all images cached OR 2.5s max (whichever first)
- *   4. Result: user scrolls and every image is already in cache → instant
+ * Se queda hasta que TODO esté listo:
+ *   1. Hero video listo para reproducir (canplaythrough)
+ *   2. Todas las imágenes mobile en caché
+ *   3. Mínimo 1.4s para el momento de marca
+ *   4. Máximo 5s de seguridad (conexiones muy lentas)
  *
- * Video: already loading via <video preload="auto"> in HeroSection + <link rel="preload">
- * in index.html — we don't duplicate that download here.
+ * Resultado: cuando el logo sale, el usuario scrollea y todo ya está.
  */
 
 import { useState, useEffect } from "react";
@@ -17,25 +16,19 @@ import { motion, AnimatePresence } from "framer-motion";
 const isMobile = () =>
   typeof window !== "undefined" && window.innerWidth < 768;
 
-// All mobile image variants (AVIF — 60% smaller than WebP, same quality)
-// Pre-cached during splash so every scroll is instant
 const MOBILE_IMAGES = [
-  // Above fold / first scroll — AVIF for browsers that support it
   "/imgs/boda-elegante-mobile.avif",
   "/imgs/interior-mobile.avif",
   "/imgs/gallery-bodas-1-mobile.avif",
   "/imgs/gallery-bodas-2-mobile.avif",
-  // Services
   "/imgs/exterior-carpa-mobile.avif",
   "/imgs/evento-deportivo-new-mobile.avif",
   "/imgs/fiesta-privada-new-mobile.avif",
-  // About slideshow
   "/imgs/interior2-mobile.avif",
   "/imgs/interior3-mobile.avif",
   "/imgs/unidad-abierta-mobile.avif",
   "/imgs/unidad-exterior-1-mobile.avif",
   "/imgs/boda1-mobile.avif",
-  // Gallery
   "/imgs/gallery-bodas-3-mobile.avif",
   "/imgs/gallery-bodas-4-mobile.avif",
   "/imgs/gallery-bodas-5-mobile.avif",
@@ -47,7 +40,6 @@ const MOBILE_IMAGES = [
   "/imgs/gallery-fiestas-4-mobile.avif",
   "/imgs/gallery-ext-1-mobile.avif",
   "/imgs/gallery-ext-2-mobile.avif",
-  // HowItWorks
   "/imgs/paso1-cotizacion-mobile.avif",
   "/imgs/paso2-instalacion-mobile.avif",
   "/imgs/paso3-disfrute-mobile.avif",
@@ -60,17 +52,52 @@ const DESKTOP_IMAGES = [
   "/imgs/exterior-carpa.webp",
   "/imgs/evento-deportivo-new.webp",
   "/imgs/fiesta-privada-new.webp",
+  "/imgs/gallery-bodas-2.webp",
+  "/imgs/gallery-bodas-3.webp",
 ];
 
-function preloadImages(srcs: string[]): Promise<void> {
+// Espera que el hero video esté listo para reproducir
+function waitForHeroVideo(mobile: boolean): Promise<void> {
   return new Promise((resolve) => {
-    let remaining = srcs.length;
-    if (remaining === 0) { resolve(); return; }
-    srcs.forEach((src) => {
+    const src = mobile
+      ? "/imgs/bg-bodas-mobile.mp4"
+      : "/imgs/bg-bodas.mp4";
+    const v = document.createElement("video");
+    v.muted = true;
+    v.playsInline = true;
+    v.preload = "auto";
+    // Listo cuando tiene suficientes datos para empezar
+    v.oncanplay = () => resolve();
+    v.onloadeddata = () => resolve();
+    // Si ya hay un video cargando en el DOM (HeroSection), esperar ese
+    setTimeout(() => {
+      const existing = document.querySelector("video") as HTMLVideoElement | null;
+      if (existing && existing.readyState >= 2) {
+        resolve();
+      }
+    }, 100);
+    v.src = src;
+    v.load();
+    // Seguridad: si el video tarda mucho no bloqueamos infinito
+    setTimeout(resolve, 4000);
+  });
+}
+
+// Precarga imágenes en el caché del browser
+function preloadAllImages(
+  images: string[],
+  onProgress: (pct: number) => void
+): Promise<void> {
+  return new Promise((resolve) => {
+    let done = 0;
+    const total = images.length;
+    if (total === 0) { resolve(); return; }
+    images.forEach((src) => {
       const img = new Image();
       img.onload = img.onerror = () => {
-        remaining--;
-        if (remaining === 0) resolve();
+        done++;
+        onProgress(Math.round((done / total) * 100));
+        if (done >= total) resolve();
       };
       img.src = src;
     });
@@ -85,37 +112,16 @@ export default function Preloader() {
     const mobile = isMobile();
     const images = mobile ? MOBILE_IMAGES : DESKTOP_IMAGES;
 
-    // Track progress per image for the bar
-    let loaded = 0;
-    const total = images.length;
+    // Los tres requisitos para cerrar el preloader:
+    const imagesDone = preloadAllImages(images, setProgress);
+    const videoDone  = waitForHeroVideo(mobile);
+    const minDelay   = new Promise<void>((r) => setTimeout(r, 1400)); // mínimo de marca
+    const maxDelay   = new Promise<void>((r) => setTimeout(r, 5000)); // máximo absoluto
 
-    const loadOne = (src: string) =>
-      new Promise<void>((resolve) => {
-        const img = new Image();
-        img.onload = img.onerror = () => {
-          loaded++;
-          setProgress(Math.round((loaded / total) * 100));
-          resolve();
-        };
-        img.src = src;
-      });
-
-    // Load in two waves: critical first (top 6), rest in parallel
-    const critical = images.slice(0, 6);
-    const rest = images.slice(6);
-
-    const done = Promise.all([
-      ...critical.map(loadOne),
-      ...rest.map(loadOne),
-    ]);
-
-    // Dismiss when all loaded, min 1.2s (brand moment), max 2.8s
-    const minTimer = new Promise<void>((r) => setTimeout(r, 1200));
-    const maxTimer = new Promise<void>((r) => setTimeout(r, 2800));
-
+    // Cierra cuando TODO está listo, o cuando pasan 5s (lo que ocurra primero)
     Promise.race([
-      Promise.all([done, minTimer]),
-      maxTimer,
+      Promise.all([imagesDone, videoDone, minDelay]),
+      maxDelay,
     ]).then(() => setIsLoading(false));
   }, []);
 
@@ -137,7 +143,7 @@ export default function Preloader() {
             backgroundColor: "#F7F3ED",
           }}
         >
-          {/* EcoGreen logo */}
+          {/* Logo EcoGreen */}
           <motion.img
             src="/imgs/logo-transparente.webp"
             alt="EcoGreen"
@@ -146,7 +152,7 @@ export default function Preloader() {
             style={{ width: 180, height: "auto" }}
           />
 
-          {/* Progress bar — bottom of screen */}
+          {/* Barra de progreso real — bottom */}
           <div
             style={{
               position: "absolute",
@@ -159,7 +165,7 @@ export default function Preloader() {
           >
             <motion.div
               animate={{ width: `${progress}%` }}
-              transition={{ duration: 0.15, ease: "easeOut" }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
               style={{
                 height: "100%",
                 backgroundColor: "#00A651",
