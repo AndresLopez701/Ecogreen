@@ -22,13 +22,28 @@ const bgVideos = [
   "/imgs/bg-fiestas.mp4",
 ];
 
+// Mobile: static WebP images (145KB each vs 4MB video = 27x faster)
+const bgMobile = [
+  "/imgs/bg-bodas-mobile.webp",
+  "/imgs/bg-eventos-mobile.webp",
+  "/imgs/bg-celebraciones-mobile.webp",
+  "/imgs/bg-fiestas-mobile.webp",
+];
+
+const isMobile = () => window.innerWidth < 768;
+
 
 const CYCLE_INTERVAL = 4000; // ms — synced with FlipWords
 
 export default function HeroSection() {
   const [currentBg, setCurrentBg] = useState(0);
+  const [mobile, setMobile] = useState(false);
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 600], [1, 0]);
+
+  useEffect(() => {
+    setMobile(isMobile());
+  }, []);
 
   // Advance background in sync with FlipWords
   useEffect(() => {
@@ -44,27 +59,45 @@ export default function HeroSection() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{ backgroundColor: "#1a2e1a" }}
     >
-      {/* Crossfading video backgrounds — all preloaded, opacity crossfade */}
-      {bgVideos.map((src, i) => (
-        <motion.div
-          key={src}
-          className="absolute inset-0"
-          animate={{ opacity: i === currentBg ? 1 : 0 }}
-          transition={{ duration: 1.4, ease: "easeInOut" }}
-          style={{ willChange: "opacity" }}
-        >
-          <video
-            src={src}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload={i === 0 ? "auto" : "none"}
-            className="w-full h-full object-cover"
-            style={{ minHeight: "110%" }}
-          />
-        </motion.div>
-      ))}
+      {/* Mobile: instant-loading WebP images | Desktop: crossfading videos */}
+      {mobile ? (
+        bgMobile.map((src, i) => (
+          <motion.div
+            key={src}
+            className="absolute inset-0"
+            animate={{ opacity: i === currentBg ? 1 : 0 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+          >
+            <img
+              src={src}
+              alt=""
+              className="w-full h-full object-cover"
+              loading={i === 0 ? "eager" : "lazy"}
+            />
+          </motion.div>
+        ))
+      ) : (
+        bgVideos.map((src, i) => (
+          <motion.div
+            key={src}
+            className="absolute inset-0"
+            animate={{ opacity: i === currentBg ? 1 : 0 }}
+            transition={{ duration: 1.4, ease: "easeInOut" }}
+            style={{ willChange: "opacity" }}
+          >
+            <video
+              src={src}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload={i === 0 ? "auto" : "none"}
+              className="w-full h-full object-cover"
+              style={{ minHeight: "110%" }}
+            />
+          </motion.div>
+        ))
+      )}
 
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#2C2C2C]/55 via-[#2C2C2C]/35 to-[#2C2C2C]/75 z-10" />

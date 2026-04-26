@@ -1,26 +1,21 @@
 /*
  * EcoGreen Soluciones - Home Page (Ultra Pro)
  * Design: "Hacienda Digital" — Calidez Colombiana Premium
- * Inspired by 21st.dev premium components
- * Effects: BlurFade, FlipWords, Glassmorphism, Parallax, Magnetic, Marquee
  */
 
-import { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import SectionReveal from "@/components/animations/SectionReveal";
+import AboutSection from "@/components/AboutSection";
+import ServicesSection from "@/components/ServicesSection";
+import GallerySection from "@/components/GallerySection";
+import WhyChooseUsSection from "@/components/WhyChooseUsSection";
+import HowItWorksSection from "@/components/HowItWorksSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import FAQSection from "@/components/FAQSection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-
-// Lazy load all below-fold sections — they only download when needed
-const AboutSection       = lazy(() => import("@/components/AboutSection"));
-const ServicesSection    = lazy(() => import("@/components/ServicesSection"));
-const GallerySection     = lazy(() => import("@/components/GallerySection"));
-const WhyChooseUsSection = lazy(() => import("@/components/WhyChooseUsSection"));
-const HowItWorksSection  = lazy(() => import("@/components/HowItWorksSection"));
-const TestimonialsSection= lazy(() => import("@/components/TestimonialsSection"));
-const FAQSection         = lazy(() => import("@/components/FAQSection"));
-const ContactSection     = lazy(() => import("@/components/ContactSection"));
-const Footer             = lazy(() => import("@/components/Footer"));
+import SectionReveal from "@/components/animations/SectionReveal";
 
 export default function Home() {
   return (
@@ -28,20 +23,16 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection />
-        <Suspense fallback={null}>
-          <SectionReveal><AboutSection /></SectionReveal>
-          <SectionReveal><ServicesSection /></SectionReveal>
-          <SectionReveal><GallerySection /></SectionReveal>
-          <SectionReveal><WhyChooseUsSection /></SectionReveal>
-          <HowItWorksSection />
-          <SectionReveal><TestimonialsSection /></SectionReveal>
-          <SectionReveal><FAQSection /></SectionReveal>
-          <SectionReveal><ContactSection /></SectionReveal>
-        </Suspense>
+        <SectionReveal><AboutSection /></SectionReveal>
+        <SectionReveal><ServicesSection /></SectionReveal>
+        <SectionReveal><GallerySection /></SectionReveal>
+        <SectionReveal><WhyChooseUsSection /></SectionReveal>
+        <HowItWorksSection />
+        <SectionReveal><TestimonialsSection /></SectionReveal>
+        <SectionReveal><FAQSection /></SectionReveal>
+        <SectionReveal><ContactSection /></SectionReveal>
       </main>
-      <Suspense fallback={null}>
-        <Footer />
-      </Suspense>
+      <Footer />
       <WhatsAppButton />
     </div>
   );
