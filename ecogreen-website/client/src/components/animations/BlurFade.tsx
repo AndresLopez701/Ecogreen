@@ -1,6 +1,7 @@
 /*
  * BlurFade - Inspired by 21st.dev Blur Fade effect
- * Elements fade in from blur to sharp focus with vertical movement
+ * Pre-triggers 200px before viewport so content is ready when user arrives.
+ * Falls back to visible state immediately if motion fails (no flash of empty).
  */
 
 import { motion, useInView } from "framer-motion";
@@ -24,7 +25,8 @@ export default function BlurFade({
   once = true,
 }: BlurFadeProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once, margin: "-40px" });
+  // Pre-trigger 200px before entering viewport — content is ready by the time user sees it
+  const isInView = useInView(ref, { once, margin: "200px" });
 
   return (
     <motion.div

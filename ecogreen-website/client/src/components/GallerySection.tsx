@@ -6,6 +6,7 @@
  */
 
 import BlurFade from "@/components/animations/BlurFade";
+import ResponsiveImage from "@/components/ResponsiveImage";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
 import { X, ArrowLeft, ArrowRight } from "lucide-react";
@@ -83,12 +84,16 @@ const tabs: Tab[] = [
 function GalleryCard({
   item,
   large = false,
+  index = 0,
   onClick,
 }: {
   item: GalleryItem;
   large?: boolean;
+  index?: number;
   onClick: () => void;
 }) {
+  // First 2 images per tab are above-the-fold-ish — load eagerly
+  const isPriority = index < 2 && item.type === "image";
   return (
     <div
       className={`relative overflow-hidden rounded-2xl cursor-pointer group ${
@@ -112,18 +117,18 @@ function GalleryCard({
           className="absolute inset-0 overflow-hidden"
           style={{ padding: `${((1 - item.zoom) / 2) * 100}%` }}
         >
-          <img
+          <ResponsiveImage
             src={item.src}
             alt={item.alt}
-            loading="lazy"
+            priority={isPriority}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
         </div>
       ) : (
-        <img
+        <ResponsiveImage
           src={item.src}
           alt={item.alt}
-          loading="lazy"
+          priority={isPriority}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           style={item.position ? { objectPosition: item.position } : undefined}
         />
@@ -235,6 +240,7 @@ export default function GallerySection() {
                 key={`${activeTab}-${i}`}
                 item={item}
                 large={i === 0}
+                index={i}
                 onClick={() => openLightbox(item)}
               />
             ))}

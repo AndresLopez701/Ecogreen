@@ -6,6 +6,7 @@
  */
 
 import BlurFade from "@/components/animations/BlurFade";
+import ResponsiveImage from "@/components/ResponsiveImage";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Crown, Trophy, ArrowRight } from "lucide-react";
@@ -51,9 +52,10 @@ export default function ServicesSection() {
             {...fade(0.2)}
             className="min-h-[380px] md:min-h-0 lg:col-span-7 lg:row-span-2 relative overflow-hidden rounded-3xl group"
           >
-            <img
+            <ResponsiveImage
               src="/imgs/boda-elegante.webp"
               alt="Bodas y Celebraciones"
+              priority
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0E1A12]/90 via-[#0E1A12]/25 to-transparent" />
@@ -77,7 +79,7 @@ export default function ServicesSection() {
             {...fade(0.3)}
             className="min-h-[260px] lg:col-span-5 relative overflow-hidden rounded-3xl bg-[#0E1A12] group"
           >
-            <img
+            <ResponsiveImage
               src="/imgs/interior.webp"
               alt="Unidades VIP"
               className="absolute inset-0 w-full h-full object-cover opacity-20 transition-transform duration-[1.4s] group-hover:scale-105 group-hover:opacity-30"
@@ -103,7 +105,7 @@ export default function ServicesSection() {
             {...fade(0.4)}
             className="min-h-[260px] lg:col-span-5 relative overflow-hidden rounded-3xl group"
           >
-            <img
+            <ResponsiveImage
               src="/imgs/exterior-carpa.webp"
               alt="Eventos Corporativos"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] group-hover:scale-105"
@@ -124,7 +126,7 @@ export default function ServicesSection() {
             {...fade(0.5)}
             className="min-h-[260px] lg:col-span-4 relative overflow-hidden rounded-3xl bg-[#0E1A12] group"
           >
-            <img
+            <ResponsiveImage
               src="/imgs/evento-deportivo-new.webp"
               alt="Eventos Deportivos"
               className="absolute inset-0 w-full h-full object-cover opacity-20 transition-all duration-[1.4s] group-hover:scale-105 group-hover:opacity-30"
@@ -148,7 +150,7 @@ export default function ServicesSection() {
             {...fade(0.55)}
             className="min-h-[260px] lg:col-span-4 relative overflow-hidden rounded-3xl group"
           >
-            <img
+            <ResponsiveImage
               src="/imgs/fiesta-privada-new.webp"
               alt="Fiestas Privadas"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.4s] group-hover:scale-105"

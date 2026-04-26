@@ -6,6 +6,7 @@
  */
 
 import BlurFade from "@/components/animations/BlurFade";
+import ResponsiveImage from "@/components/ResponsiveImage";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 // ParallaxImage replaced by ImageSlideshow
@@ -61,10 +62,10 @@ function ImageSlideshow() {
           animate={{ opacity: i === current ? 1 : 0 }}
           transition={{ duration: 1.2, ease: "easeInOut" }}
         >
-          <img
+          <ResponsiveImage
             src={slide.src}
             alt={slide.label}
-            loading={i === 0 ? "eager" : "lazy"}
+            priority={i === 0}
             className="w-full h-full object-cover"
           />
         </motion.div>
