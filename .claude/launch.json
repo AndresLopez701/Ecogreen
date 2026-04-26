@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "ecogreen-dev",
+      "runtimeExecutable": "/opt/homebrew/bin/node",
+      "runtimeArgs": ["/Users/a0/Downloads/fiverr/.claude/worktrees/epic-bartik/ecogreen-website/node_modules/.bin/vite", "--host", "--config", "/Users/a0/Downloads/fiverr/.claude/worktrees/epic-bartik/ecogreen-website/vite.config.ts"],
+      "port": 3000
+    }
+  ]
+}
