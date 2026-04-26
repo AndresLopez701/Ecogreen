@@ -99,6 +99,7 @@ function GalleryCard({
       {item.type === "video" ? (
         <video
           src={item.src}
+          poster={item.poster}
           autoPlay
           muted
           loop

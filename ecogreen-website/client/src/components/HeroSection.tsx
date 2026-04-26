@@ -42,6 +42,7 @@ export default function HeroSection() {
     <section
       id="inicio"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      style={{ backgroundColor: "#1a2e1a" }}
     >
       {/* Crossfading video backgrounds — all preloaded, opacity crossfade */}
       {bgVideos.map((src, i) => (
