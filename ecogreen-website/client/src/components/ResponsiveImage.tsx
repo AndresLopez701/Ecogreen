@@ -41,9 +41,18 @@ export default function ResponsiveImage({
   // fetchpriority is a valid HTML attribute; React 18.3+ supports the camelCase prop
   const fetchPriority = priority ? "high" : "auto";
 
+  // AVIF variant — same path with .avif extension (only for mobile variants)
+  const mobileAvif = noMobile ? null : mobileSrc.replace(/\.webp$/, ".avif");
+
   return (
     <picture>
-      {!noMobile && <source media="(max-width: 768px)" srcSet={mobileSrc} type="image/webp" />}
+      {/* Mobile: AVIF first (60% smaller), WebP fallback, then desktop */}
+      {!noMobile && mobileAvif && (
+        <source media="(max-width: 768px)" srcSet={mobileAvif} type="image/avif" />
+      )}
+      {!noMobile && (
+        <source media="(max-width: 768px)" srcSet={mobileSrc} type="image/webp" />
+      )}
       <img
         src={src}
         alt={alt}

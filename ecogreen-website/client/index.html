@@ -49,9 +49,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-    <!-- Preload critical assets — hero video + logo start downloading immediately -->
-    <link rel="preload" href="/imgs/bg-bodas.mp4" as="video" type="video/mp4" />
-    <link rel="preload" href="/imgs/logo-transparente.webp" as="image" />
+    <!-- Preload critical assets — correct video version per device -->
+    <!-- Desktop: full 1080p, Mobile: 1080p mobile-optimized -->
+    <link rel="preload" href="/imgs/bg-bodas.mp4" as="video" type="video/mp4" media="(min-width: 768px)" />
+    <link rel="preload" href="/imgs/bg-bodas-mobile.mp4" as="video" type="video/mp4" media="(max-width: 767px)" />
+    <link rel="preload" href="/imgs/logo-transparente.webp" as="image" fetchpriority="high" />
   </head>
 
   <body>
