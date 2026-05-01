@@ -704,14 +704,14 @@
 
       <!-- 1: Interior Premium — video -->
       <div class="fe-image-slot" data-slot="1">
-        <video src="/imgs/fe-interior-premium.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:contain;background:#0a1510;"></video>
+        <video id="feInterior" src="/imgs/fe-interior-premium.mp4" poster="/imgs/fe-interior-premium-poster.webp" autoplay muted loop playsinline preload="metadata" style="width:100%;height:100%;object-fit:contain;background:#0a1510;"></video>
       </div>
 
       <!-- 2: Amenidades — dual video crossfade -->
       <div class="fe-image-slot" data-slot="2">
         <div class="fe-amen-seq">
-          <video id="feAmen1" src="/imgs/amenidades1.mp4" muted playsinline preload="auto"></video>
-          <video id="feAmen2" src="/imgs/amenidades2.mp4" muted playsinline preload="auto"></video>
+          <video id="feAmen1" src="/imgs/amenidades1.mp4" poster="/imgs/amenidades1-poster.webp" muted playsinline preload="none"></video>
+          <video id="feAmen2" src="/imgs/amenidades2.mp4" poster="/imgs/amenidades2-poster.webp" muted playsinline preload="none"></video>
         </div>
       </div>
 
@@ -826,6 +826,12 @@
     if (nameEl) nameEl.textContent = feNames[index];
     if (descEl) descEl.textContent = feDescs[index];
 
+    // ── Interior premium: ensure play on activation ──
+    if (index === 1) {
+      const v = document.getElementById('feInterior');
+      if (v) { try { v.play(); } catch (_) {} }
+    }
+
     // ── Amenidades video sequence: restart on activation ──
     if (index === 2) feAmenStart();
   }
@@ -840,6 +846,8 @@
     feAmen1.style.opacity = '1';
     feAmen1.currentTime = 0;
     feAmen2.currentTime = 0;
+    // Force preload of amen2 in parallel so it's ready when amen1 ends
+    try { feAmen2.preload = 'auto'; feAmen2.load(); } catch (_) {}
     feAmen1.play();
   }
 
