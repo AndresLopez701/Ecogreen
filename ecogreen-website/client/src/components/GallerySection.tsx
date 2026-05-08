@@ -20,6 +20,7 @@ type GalleryItem = {
   poster?: string;
   zoom?: number;    // e.g. 0.85 = zoom out
   position?: string; // e.g. "bottom", "center 80%"
+  tall?: boolean;   // span 2 rows on desktop (for portrait images)
 };
 
 type Tab = {
@@ -71,11 +72,10 @@ const tabs: Tab[] = [
     label: "Exteriores",
     items: [
       { src: "/imgs/gallery-ext-1.webp",    alt: "Vista exterior unidades EcoGreen",       label: "Unidad Premium",    type: "image" },
+      { src: "/imgs/gallery-ext-5.webp",    alt: "Vista general exterior",                  label: "Vista General",     type: "image", tall: true },
       { src: "/imgs/gallery-ext-2.webp",    alt: "Flota de unidades en exterior",           label: "Flota Completa",    type: "image" },
       { src: "/imgs/gallery-ext-3.webp",    alt: "Unidades instaladas en exterior",         label: "Instalación",       type: "image" },
       { src: "/imgs/gallery-ext-4.webp",    alt: "Unidades en evento exterior",             label: "Evento Exterior",   type: "image" },
-      { src: "/imgs/gallery-ext-5.webp",    alt: "Vista general exterior",                  label: "Vista General",     type: "image" },
-      { src: "/imgs/gallery-ext-video.mp4", alt: "Video exterior EcoGreen",                label: "En Vivo",           type: "video", poster: "/imgs/gallery-ext-1.webp" },
     ],
   },
 ];
@@ -98,7 +98,7 @@ function GalleryCard({
     <div
       className={`relative overflow-hidden rounded-2xl cursor-pointer group ${
         item.zoom ? "bg-[#F7F3ED]" : "bg-[#EDE9E3]"
-      } ${large ? "md:col-span-2 md:row-span-2" : ""}`}
+      } ${large ? "md:col-span-2 md:row-span-2" : ""} ${item.tall ? "md:row-span-2" : ""}`}
       onClick={onClick}
     >
       {item.type === "video" ? (
